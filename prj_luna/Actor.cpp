@@ -3,9 +3,6 @@
 #include "Component.h"
 
 #include <algorithm>
-
-
-static int cnt = 0;
 #include <iostream>
 
 //コンストラクタ
@@ -18,10 +15,6 @@ Actor::Actor(Application* a)
     , isRecomputeWorldTransform(true)
 {
     app->AddActor(this);
-    
-    
-    cnt++;
-    std::cout << "Actor num =  " << cnt << std::endl;
 }
 
 #include <iostream>
@@ -36,10 +29,6 @@ Actor::~Actor()
     {
 		delete components.back();
 	}
-    
-    cnt--;
-    std::cout << "Actor num =  " << cnt << std::endl;
-
 }
 
 // メインルーチン

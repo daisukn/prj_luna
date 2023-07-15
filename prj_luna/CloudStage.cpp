@@ -6,6 +6,7 @@
 #include "PlaneActor.h"
 #include "DragonActor.h"
 
+
 CloudStage::CloudStage(class Application* a)
     : Stage(a)
 {
@@ -21,10 +22,11 @@ CloudStage::~CloudStage()
 
 void CloudStage::LoadStageData()
 {
-    cloudActor = new PlaneActor(app);
-    cloudActor->SetPosition(Vector3(0, 0, 30));
+    
+    planeActor = std::make_unique<PlaneActor>(app);
+    planeActor->SetPosition(Vector3(0, 0, 30));
 
-    dragonActor = new DragonActor(app);
+    dragonActor = std::make_unique<DragonActor>(app);
     dragonActor->SetPosition(Vector3(0, 0, 100));
 
 
@@ -38,8 +40,6 @@ void CloudStage::LoadStageData()
 
 void CloudStage::UnloadStageData()
 {
-    delete cloudActor;
-    delete dragonActor;
 }
 
 void CloudStage::StageInput(const struct InputState &state)

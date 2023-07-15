@@ -30,8 +30,6 @@ public:
     // 終了処理
     void Shutdown();
     
-    void UnloadActors();
-    
     // アクターを登録/削除
     void AddActor(class Actor* actor);
     void RemoveActor(class Actor* actor);

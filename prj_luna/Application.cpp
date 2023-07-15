@@ -159,26 +159,18 @@ void Application::RemoveActor(Actor* actor)
 
 }
 
-// actorをアンロード
-void Application::UnloadActors()
+
+// データ解放
+void Application::UnloadData()
 {
+    actors.clear();
+    /*
     while (!actors.empty())
     {
         delete actors.back();
         actors.pop_back();
     }
-
-}
-
-// データ解放
-void Application::UnloadData()
-{
-    while (actors.empty())
-    {
-        delete actors.back();
-        actors.pop_back();
-    }
-
+    */
     if (renderer)
     {
         renderer->UnloadData();
@@ -198,7 +190,6 @@ void Application::LoadData()
     dir.SpecColor = Vector3(1.0f, 1.0f, 1.0f);
     
     // ステージ読み込み
-//    activeStageID = 0;
     stageTransition = STAGE_TITLE;
     activeStage = new TitleStage(this);
 }

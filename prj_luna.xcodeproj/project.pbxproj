@@ -217,7 +217,6 @@
 			children = (
 				7E4DB25B2A59E5A20047132A /* Actor.h */,
 				7E4DB2012A59E59E0047132A /* Actor.cpp */,
-				7E4DB2302A59E59F0047132A /* Animation.h */,
 				7E4DB2382A59E59F0047132A /* Bone.cpp */,
 				7E4DB24A2A59E5A10047132A /* Bone.h */,
 				7E4DB2022A59E59E0047132A /* InputSystem.cpp */,
@@ -261,6 +260,7 @@
 				7E4DB2512A59E5A10047132A /* SkeletalMeshComponent.h */,
 				7E4DB2442A59E5A00047132A /* SpriteComponent.cpp */,
 				7E4DB2522A59E5A10047132A /* SpriteComponent.h */,
+				7E4DB2302A59E59F0047132A /* Animation.h */,
 			);
 			name = Components;
 			sourceTree = "<group>";

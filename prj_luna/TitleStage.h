@@ -2,14 +2,15 @@
 #define __TITLESTAGE_H
 
 #include "Stage.h"
+#include <memory>
 
 class TitleStage : public Stage
 {
-    class Actor* titleActor;
-    class MeshComponent* mc;
+    std::unique_ptr<class Actor> titleActor;
+    std::unique_ptr<class MeshComponent> mesh;
 public:
     TitleStage(class Application* a);
-    ~TitleStage();
+    virtual ~TitleStage();
     
     virtual void LoadStageData() override;
     virtual void UnloadStageData() override;

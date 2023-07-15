@@ -20,10 +20,10 @@ PlaneActor::PlaneActor(Application* app)
     , prevPos(Vector3::Zero)
 {
     // メッシュ初期化
-    meshComp = new SkeletalMeshComponent(this);
+    meshComp = std::make_unique<SkeletalMeshComponent>(this);
     meshComp->SetMesh(app->GetRenderer()->GetMesh("Assets/plane.fbx"));
     meshComp->SetAnimID(animID, PLAY_CYCLIC);
-    //meshComp->SetToonRender(true);
+    meshComp->SetToonRender(true);
     
     
     // 場所調整
@@ -31,10 +31,9 @@ PlaneActor::PlaneActor(Application* app)
     SetScale(0.01);
     
     // カメラ初期化
-    cameraComp = new FollowCamera(this);
-    
+    cameraComp = std::make_unique<FollowCamera>(this);
     // 移動コンポーネント
-    moveComp = new MoveComponent(this);
+    moveComp = std::make_unique<MoveComponent>(this);
 /*
     collComp = new ColliderComponent(this);
     collComp->SetColliderType(C_PLAYER);
@@ -57,19 +56,19 @@ void PlaneActor::FieldMove(const InputState &state)
     
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_UP) == EHeld)
     {
-        upSpeed += speed;
+        if(GetPosition().y < 50) upSpeed += speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_DOWN) == EHeld)
     {
-        upSpeed -= speed;
+        if(GetPosition().y > -50) upSpeed -= speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_LEFT) == EHeld)
     {
-        rightSpeed -= speed;
+        if(GetPosition().x > -50) rightSpeed -= speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_RIGHT) == EHeld)
     {
-        rightSpeed += speed;
+        if(GetPosition().x < 50) rightSpeed += speed;
     }
     
     

@@ -2,6 +2,10 @@
 #define __PLANEACTOR_H
 
 #include "Actor.h"
+#include "SkeletalMeshComponent.h"
+#include "MoveComponent.h"
+#include "FollowCamera.h"
+#include <memory>
 
 
 // 飛行機
@@ -22,9 +26,9 @@ private:
     // モーションID
     int animID;
     
-    class SkeletalMeshComponent* meshComp;
-    class MoveComponent* moveComp;
-    class FollowCamera* cameraComp;
+    std::unique_ptr<class SkeletalMeshComponent> meshComp;
+    std::unique_ptr<class MoveComponent> moveComp;
+    std::unique_ptr<class FollowCamera> cameraComp;
     
     
     // フィールド移動用

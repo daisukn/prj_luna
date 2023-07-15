@@ -20,19 +20,21 @@ float ang  = 0.0f;
 
 void TitleStage::LoadStageData()
 {
-    titleActor = new Actor(app);
+    titleActor = std::make_unique<Actor>(app);
     titleActor->SetPosition(Vector3(0, 0, 10));
-    mc = new MeshComponent(titleActor);
-    mc->SetMesh(app->GetRenderer()->GetMesh("Assets/title/title.lwo"));
+
+    mesh = std::make_unique<MeshComponent>(titleActor.get());
+    mesh->SetMesh(app->GetRenderer()->GetMesh("Assets/title/title.lwo"));
     isQuitStage = false;
     
 }
 
 void TitleStage::UnloadStageData()
 {
-    delete titleActor;
+//    delete titleActor;
 //    app->RemoveActor(titleActor);
     app->GetRenderer()->UnloadData();
+    std::cout << "Unload StageData()" << std::endl;
 }
 
 void TitleStage::StageInput(const struct InputState &state)

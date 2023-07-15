@@ -3,6 +3,7 @@
 
 #include "Component.h"
 #include "Math.h"
+#include <memory>
 
 // カメラ管理コンポーネント
 class CameraComponent : public Component
@@ -21,7 +22,5 @@ protected:
     
     
     // カメラの場所計算用
-    class Actor* cameraActor;
-    class ColliderComponent* collComp;
-    
+    std::unique_ptr<class Actor> cameraActor;
 };

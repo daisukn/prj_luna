@@ -60,7 +60,7 @@ void SkeletalMeshComponent::Draw(Shader* shader)
         {
             glEnable( GL_CULL_FACE );
             glFrontFace(GL_CW);
-            Matrix4 m = Matrix4::CreateScale(1.03f);
+            Matrix4 m = Matrix4::CreateScale(contourFactor);
             shader->SetMatrixUniform("uWorldTransform", m*owner->GetWorldTransform());
             for (auto v : va)
             {

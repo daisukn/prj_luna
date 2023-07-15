@@ -21,7 +21,7 @@ public:
     bool GetIsSkeletal() const { return isSkeletal; }
     class VertexArray* GetVertexArray(int id) const;
     
-    void SetToonRender(const bool t, const float f = 1.0004f) { isToon = t; contourFactor = f; }
+    void SetToonRender(const bool t, const float f = 1.05f) { isToon = t; contourFactor = f; }
     void SetContourFactor(const float f) { contourFactor = f; }
     
 protected:

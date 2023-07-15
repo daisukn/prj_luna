@@ -2,12 +2,13 @@
 #define __CLOUDSTAGE_H
 
 #include "Stage.h"
+#include <memory>
 
 class CloudStage : public Stage
 {
 private:
-    class Actor* cloudActor;
-    class Actor* dragonActor;
+    std::unique_ptr<class PlaneActor> planeActor;
+    std::unique_ptr<class DragonActor> dragonActor;
     float ang = 0.f;
 public:
     CloudStage(class Application* a);

@@ -7,8 +7,7 @@
 CameraComponent::CameraComponent(Actor* a, int updateOrder)
     : Component(a, updateOrder)
 {
-    cameraActor = new Actor(owner->GetApp());
-    collComp = new ColliderComponent(cameraActor);
+    cameraActor = std::make_unique<Actor>(owner->GetApp());
 }
 
 void CameraComponent::SetViewMatrix(const Matrix4& view)
