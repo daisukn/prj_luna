@@ -72,8 +72,8 @@ public:
 	// コンポーネントの追加削除
 	void AddComponent(class Component* component);
 	void RemoveComponent(class Component* component);
-
     
+
 
 
     
@@ -95,6 +95,7 @@ private:
     
     // ステータス
     enum State status; // emum State 状態を管理
+
     
 
 };

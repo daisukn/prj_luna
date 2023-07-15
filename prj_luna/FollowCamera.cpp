@@ -8,7 +8,7 @@ FollowCamera::FollowCamera(Actor* owner)
     , horzDist(30.0f)        // 所有アクターとの距離
     , vertDist(00.0f)        // 所有アクターとの距離（高さ）
     , targetDist(50.0f)      // 視点は所有アクターよりどのくらい前か
-    , springConstant(10.0f)  // バネ定数
+    , springConstant(18.0f)  // バネ定数
 {
     
 }

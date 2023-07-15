@@ -183,11 +183,11 @@ void Application::LoadData()
     
     
     // ライト
-    renderer->SetAmbientLight(Vector3(1.0f, 1.0f, 1.0f));
+    renderer->SetAmbientLight(Vector3(1.f, 1.f, 1.f));
     DirectionalLight& dir = renderer->GetDirectionalLight();
-    dir.Direction = Vector3(0.f, -00.0f, -1.f);
-    dir.DiffuseColor = Vector3(1.5f, 1.5f, 1.5f);
-    dir.SpecColor = Vector3(1.0f, 1.0f, 1.0f);
+    dir.Direction = Vector3(0.f, 0.f, 1.f);
+    dir.DiffuseColor = Vector3(0.4f, 0.4f, 0.4f);
+    dir.SpecColor = Vector3(0.f, 0.f, 0.f);
     
     // ステージ読み込み
     stageTransition = STAGE_TITLE;

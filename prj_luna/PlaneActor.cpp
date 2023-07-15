@@ -101,7 +101,7 @@ void PlaneActor::UpdateActor(float deltaTime)
 
 
 
-void PlaneActor::SetVisible(bool visible)
+void PlaneActor::SetMeshVisible(bool visible)
 {
     meshComp->SetVisible(visible);
 }

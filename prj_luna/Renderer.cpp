@@ -7,6 +7,7 @@
 #include "MeshComponent.h"
 #include "SkeletalMeshComponent.h"
 #include "ParticleComponent.h"
+#include "BillboardComponent.h"
 
 #include "DebuggerComponent.h"
 
@@ -173,6 +174,24 @@ void Renderer::Draw()
     
     
     
+    // ビルボード
+    // Zバッファに書き込まない
+    glDepthMask(GL_FALSE);
+
+    spriteVerts->SetActive();
+    billboardShader->SetActive();
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    billboardShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+
+    for (auto bb : billboardComps)
+    {
+        bb->Draw(billboardShader);
+    }
+    glDepthMask(GL_TRUE);
+    
+    
+    
+    
     // スプライト処理
     glDisable(GL_DEPTH_TEST);
     // アルファブレンディング
@@ -218,7 +237,7 @@ bool Renderer::LoadShaders()
     
     // メッシュ用シェーダー生成
     meshShader = new Shader();
-    if (!meshShader->Load("Shaders/Phong.vert", "Shaders/Toon.frag"))
+    if (!meshShader->Load("Shaders/Phong.vert", "Shaders/Phong.frag"))
     {
         return false;
     }
@@ -264,7 +283,7 @@ void Renderer::SetLightUniforms(Shader* shader)
     
     
     // フォグ
-    shader->SetFloatUniform("uFoginfo.maxDist", 1500.0f);
+    shader->SetFloatUniform("uFoginfo.maxDist", 2000.0f);
     shader->SetFloatUniform("uFoginfo.minDist", 1.0f);
     shader->SetVectorUniform("uFoginfo.color", Vector3(0.596f, 0.733f, 0.858f) );
 //    shader->SetVectorUniform("uFoginfo.color", Vector3(0.01f, 0.01f, 0.01f) );
@@ -413,6 +432,24 @@ void Renderer::RemoveParticleComp(ParticleComponent* part)
 }
 
 
+// ビルボードコンポーネント登録
+void Renderer::AddBillboardComp(BillboardComponent* billboard)
+{
+    billboardComps.emplace_back(billboard);
+}
+
+// パーティクルコンポーネント登録
+void Renderer::RemoveBillboardComp(BillboardComponent* billboard)
+{
+    auto iter = std::find(billboardComps.begin(), billboardComps.end(), billboard);
+    if (iter != billboardComps.end()) { // 要素が見つかった場合のみ削除
+        billboardComps.erase(iter);
+    }
+}
+
+
+
+
 // デバッガーコンポーネント登録
 void Renderer::AddDebuggerComp(DebuggerComponent* dbg)
 {
@@ -441,7 +478,7 @@ void Renderer::UnloadData()
         i.second = nullptr;
     }
     textures.clear();
-
+    
     // メッシュ削除
     for (auto& i : meshes)
     {
@@ -451,31 +488,4 @@ void Renderer::UnloadData()
     }
     meshes.clear();
     
-    /*
-    while (!meshComps.empty())
-    {
-        delete meshComps.back();
-        meshComps.pop_back();
-    }
-    while (!skeletalMeshes.empty())
-    {
-        delete skeletalMeshes.back();
-        skeletalMeshes.pop_back();
-    }
-    while (!spriteComps.empty())
-    {
-        delete spriteComps.back();
-        spriteComps.pop_back();
-    }
-    while (!particleComps.empty())
-    {
-        delete particleComps.back();
-        particleComps.pop_back();
-    }
-    while (!dbgComps.empty())
-    {
-        delete dbgComps.back();
-        dbgComps.pop_back();
-    }
-     */
 }

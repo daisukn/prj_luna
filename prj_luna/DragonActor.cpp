@@ -20,6 +20,8 @@ DragonActor::DragonActor(Application* app)
     meshComp->SetAnimID(0, PLAY_CYCLIC);
     
     meshComp->SetToonRender(true);
+    meshComp->SetVisible(true);
+    
     
     // 場所調整
     SetPosition(Vector3(0.0f, 0.0f, 0.0f));
@@ -28,6 +30,8 @@ DragonActor::DragonActor(Application* app)
     
     // 移動コンポーネント
     moveComp = new MoveComponent(this);
+    
+
 }
     
 

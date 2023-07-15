@@ -55,7 +55,9 @@ public:
     // パーティクルコンポーネント登録・削除
     void AddParticleComp(class ParticleComponent* part);
     void RemoveParticleComp(class ParticleComponent* part);
-    
+    // ビルボード登録・削除
+    void AddBillboardComp(class BillboardComponent* billboard);
+    void RemoveBillboardComp(class BillboardComponent* billboard);
     // デバッガーコンポーネント登録・削除
     void AddDebuggerComp(class DebuggerComponent* dbg);
     void RemoveDebuggerComp(class DebuggerComponent* dbg);
@@ -122,6 +124,7 @@ private:
     std::vector<class MeshComponent*> meshComps;
     std::vector<class SkeletalMeshComponent*> skeletalMeshes;
     std::vector<class ParticleComponent*> particleComps;
+    std::vector<class BillboardComponent*> billboardComps;
     std::vector<class DebuggerComponent*> dbgComps;
     
     

@@ -21,7 +21,7 @@ ParticleComponent::ParticleComponent(Actor* a, int drawOrder)
     , totalLife(0.0f)
     , partLifecycle(0.0f)
     , partSize(0.0f)
-    , bGrav(false)
+    , isGravity(false)
 {
     owner->GetApp()->GetRenderer()->AddParticleComp(this);
 }
@@ -129,7 +129,7 @@ void ParticleComponent::Update(float deltaTime)
         if(parts[i].bVisible)
         {
             // 重力を反映
-            if (bGrav)
+            if (isGravity)
             {
                 parts[i].dir.y -= 0.05f;
             }
@@ -172,7 +172,7 @@ void ParticleComponent::CreateParticles(Vector3 pos, unsigned int num, float lif
         parts.resize(numParts);
         //GenerateParts();
         
-        bGrav = grav;
+        isGravity = grav;
     }
     
 

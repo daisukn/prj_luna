@@ -31,7 +31,7 @@ struct ParticleParts
 class ParticleComponent : public Component
 {
 public:
-    ParticleComponent(class Actor* ownner, int drawOrder = 100);
+    ParticleComponent(class Actor* a, int drawOrder = 100);
     ~ParticleComponent();
     
     // Rendererから呼ばれる
@@ -57,7 +57,7 @@ private:
     float partLifecycle;
     float partSize;
 
-    bool bGrav;
+    bool isGravity;
     
     // パーティクル破片を生成
     void GenerateParts();

@@ -17,7 +17,7 @@ public:
     void ActorInput(const struct InputState& state) override;
     void UpdateActor(float deltaTime) override;
 
-    void SetVisible(bool visible);
+    void SetMeshVisible(bool visible);
     
 private:
     //  前フレームの場所
