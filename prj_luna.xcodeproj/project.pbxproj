@@ -7,7 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E4DB1EC2A59E5850047132A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB1EB2A59E5850047132A /* main.cpp */; };
+		7E4DB2612A59E5A20047132A /* MeshComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2392A59E5A00047132A /* MeshComponent.cpp */; };
+		7E4DB2622A59E5A20047132A /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB1F22A59E59E0047132A /* Shader.cpp */; };
+		7E4DB2632A59E5A20047132A /* Bone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2382A59E59F0047132A /* Bone.cpp */; };
+		7E4DB2642A59E5A20047132A /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB23F2A59E5A00047132A /* Texture.cpp */; };
+		7E4DB2652A59E5A20047132A /* ColliderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2312A59E59F0047132A /* ColliderComponent.cpp */; };
+		7E4DB2662A59E5A20047132A /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB23C2A59E5A00047132A /* Math.cpp */; };
+		7E4DB26A2A59E5A20047132A /* FollowCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB23D2A59E5A00047132A /* FollowCamera.cpp */; };
+		7E4DB26B2A59E5A20047132A /* InputSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2022A59E59E0047132A /* InputSystem.cpp */; };
+		7E4DB26C2A59E5A20047132A /* ParticleComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB24C2A59E5A10047132A /* ParticleComponent.cpp */; };
+		7E4DB26D2A59E5A20047132A /* CameraComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2432A59E5A00047132A /* CameraComponent.cpp */; };
+		7E4DB26E2A59E5A20047132A /* SpriteComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2442A59E5A00047132A /* SpriteComponent.cpp */; };
+		7E4DB26F2A59E5A20047132A /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB1FE2A59E59E0047132A /* VertexArray.cpp */; };
+		7E4DB2702A59E5A20047132A /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2542A59E5A10047132A /* Component.cpp */; };
+		7E4DB2712A59E5A20047132A /* DebuggerComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2342A59E59F0047132A /* DebuggerComponent.cpp */; };
+		7E4DB2722A59E5A20047132A /* SkeletalMeshComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2572A59E5A20047132A /* SkeletalMeshComponent.cpp */; };
+		7E4DB2732A59E5A20047132A /* BoundingVolumeComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2532A59E5A10047132A /* BoundingVolumeComponent.cpp */; };
+		7E4DB2742A59E5A20047132A /* PhysWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB24F2A59E5A10047132A /* PhysWorld.cpp */; };
+		7E4DB2752A59E5A20047132A /* Actor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2012A59E59E0047132A /* Actor.cpp */; };
+		7E4DB2762A59E5A20047132A /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2332A59E59F0047132A /* Application.cpp */; };
+		7E4DB2772A59E5A20047132A /* MoveComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB25F2A59E5A20047132A /* MoveComponent.cpp */; };
+		7E4DB27A2A59E5A20047132A /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2032A59E59E0047132A /* Renderer.cpp */; };
+		7E4DB27B2A59E5A20047132A /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2502A59E5A10047132A /* Polygon.cpp */; };
+		7E4DB27C2A59E5A20047132A /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2372A59E59F0047132A /* Mesh.cpp */; };
+		7E4DB2802A59E5F30047132A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4DB27F2A59E5F30047132A /* OpenGL.framework */; };
+		7E4DB2832A5A50EE0047132A /* Stage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2812A5A50EE0047132A /* Stage.cpp */; };
+		7E4DB2862A5A724B0047132A /* TitleStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DB2842A5A724B0047132A /* TitleStage.cpp */; };
+		7E5D43EB2A5EB0A100920241 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D43EA2A5EB0A100920241 /* main.cpp */; };
+		7E5D43EE2A5FFF1A00920241 /* DragonActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D43EC2A5FFF1A00920241 /* DragonActor.cpp */; };
+		7E6970332A5AD51400E61630 /* PlaneActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6970312A5AD51400E61630 /* PlaneActor.cpp */; };
+		7EA4AA1C2A5AB2BF0046934E /* CloudStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +53,75 @@
 
 /* Begin PBXFileReference section */
 		7E4DB1E82A59E5850047132A /* prj_luna */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = prj_luna; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E4DB1EB2A59E5850047132A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7E4DB1F22A59E59E0047132A /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		7E4DB1F42A59E59E0047132A /* Phong.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Phong.frag; sourceTree = "<group>"; };
+		7E4DB1F52A59E59E0047132A /* BasicMesh.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = BasicMesh.vert; sourceTree = "<group>"; };
+		7E4DB1F62A59E59E0047132A /* Particle.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Particle.frag; sourceTree = "<group>"; };
+		7E4DB1F72A59E59E0047132A /* Sprite.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Sprite.vert; sourceTree = "<group>"; };
+		7E4DB1F82A59E59E0047132A /* Billboard.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Billboard.vert; sourceTree = "<group>"; };
+		7E4DB1F92A59E59E0047132A /* BasicMesh.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = BasicMesh.frag; sourceTree = "<group>"; };
+		7E4DB1FA2A59E59E0047132A /* Phong.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Phong.vert; sourceTree = "<group>"; };
+		7E4DB1FB2A59E59E0047132A /* Skinned.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Skinned.vert; sourceTree = "<group>"; };
+		7E4DB1FC2A59E59E0047132A /* Sprite.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Sprite.frag; sourceTree = "<group>"; };
+		7E4DB1FD2A59E59E0047132A /* MoveComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveComponent.h; sourceTree = "<group>"; };
+		7E4DB1FE2A59E59E0047132A /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
+		7E4DB2002A59E59E0047132A /* ColliderComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColliderComponent.h; sourceTree = "<group>"; };
+		7E4DB2012A59E59E0047132A /* Actor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Actor.cpp; sourceTree = "<group>"; };
+		7E4DB2022A59E59E0047132A /* InputSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputSystem.cpp; sourceTree = "<group>"; };
+		7E4DB2032A59E59E0047132A /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		7E4DB22F2A59E59F0047132A /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		7E4DB2302A59E59F0047132A /* Animation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
+		7E4DB2312A59E59F0047132A /* ColliderComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ColliderComponent.cpp; sourceTree = "<group>"; };
+		7E4DB2322A59E59F0047132A /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		7E4DB2332A59E59F0047132A /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		7E4DB2342A59E59F0047132A /* DebuggerComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DebuggerComponent.cpp; sourceTree = "<group>"; };
+		7E4DB2352A59E59F0047132A /* CameraComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraComponent.h; sourceTree = "<group>"; };
+		7E4DB2372A59E59F0047132A /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		7E4DB2382A59E59F0047132A /* Bone.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bone.cpp; sourceTree = "<group>"; };
+		7E4DB2392A59E5A00047132A /* MeshComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MeshComponent.cpp; sourceTree = "<group>"; };
+		7E4DB23A2A59E5A00047132A /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		7E4DB23B2A59E5A00047132A /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		7E4DB23C2A59E5A00047132A /* Math.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
+		7E4DB23D2A59E5A00047132A /* FollowCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FollowCamera.cpp; sourceTree = "<group>"; };
+		7E4DB23E2A59E5A00047132A /* PhysWorld.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysWorld.h; sourceTree = "<group>"; };
+		7E4DB23F2A59E5A00047132A /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		7E4DB2402A59E5A00047132A /* Polygon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
+		7E4DB2412A59E5A00047132A /* Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
+		7E4DB2432A59E5A00047132A /* CameraComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CameraComponent.cpp; sourceTree = "<group>"; };
+		7E4DB2442A59E5A00047132A /* SpriteComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteComponent.cpp; sourceTree = "<group>"; };
+		7E4DB2452A59E5A00047132A /* Component.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		7E4DB2482A59E5A10047132A /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		7E4DB24A2A59E5A10047132A /* Bone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bone.h; sourceTree = "<group>"; };
+		7E4DB24B2A59E5A10047132A /* MeshComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshComponent.h; sourceTree = "<group>"; };
+		7E4DB24C2A59E5A10047132A /* ParticleComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleComponent.cpp; sourceTree = "<group>"; };
+		7E4DB24D2A59E5A10047132A /* DebuggerComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebuggerComponent.h; sourceTree = "<group>"; };
+		7E4DB24E2A59E5A10047132A /* BoundingVolumeComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoundingVolumeComponent.h; sourceTree = "<group>"; };
+		7E4DB24F2A59E5A10047132A /* PhysWorld.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysWorld.cpp; sourceTree = "<group>"; };
+		7E4DB2502A59E5A10047132A /* Polygon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Polygon.cpp; sourceTree = "<group>"; };
+		7E4DB2512A59E5A10047132A /* SkeletalMeshComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkeletalMeshComponent.h; sourceTree = "<group>"; };
+		7E4DB2522A59E5A10047132A /* SpriteComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteComponent.h; sourceTree = "<group>"; };
+		7E4DB2532A59E5A10047132A /* BoundingVolumeComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolumeComponent.cpp; sourceTree = "<group>"; };
+		7E4DB2542A59E5A10047132A /* Component.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
+		7E4DB2552A59E5A10047132A /* FollowCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowCamera.h; sourceTree = "<group>"; };
+		7E4DB2562A59E5A10047132A /* ParticleComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleComponent.h; sourceTree = "<group>"; };
+		7E4DB2572A59E5A20047132A /* SkeletalMeshComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletalMeshComponent.cpp; sourceTree = "<group>"; };
+		7E4DB25B2A59E5A20047132A /* Actor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
+		7E4DB25C2A59E5A20047132A /* VertexArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexArray.h; sourceTree = "<group>"; };
+		7E4DB25F2A59E5A20047132A /* MoveComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoveComponent.cpp; sourceTree = "<group>"; };
+		7E4DB2602A59E5A20047132A /* InputSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputSystem.h; sourceTree = "<group>"; };
+		7E4DB27F2A59E5F30047132A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		7E4DB2812A5A50EE0047132A /* Stage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Stage.cpp; sourceTree = "<group>"; };
+		7E4DB2822A5A50EE0047132A /* Stage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
+		7E4DB2842A5A724B0047132A /* TitleStage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TitleStage.cpp; sourceTree = "<group>"; };
+		7E4DB2852A5A724B0047132A /* TitleStage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleStage.h; sourceTree = "<group>"; };
+		7E5D43EA2A5EB0A100920241 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7E5D43EC2A5FFF1A00920241 /* DragonActor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DragonActor.cpp; sourceTree = "<group>"; };
+		7E5D43ED2A5FFF1A00920241 /* DragonActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragonActor.h; sourceTree = "<group>"; };
+		7E6970312A5AD51400E61630 /* PlaneActor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneActor.cpp; sourceTree = "<group>"; };
+		7E6970322A5AD51400E61630 /* PlaneActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaneActor.h; sourceTree = "<group>"; };
+		7E6970372A5C1FA400E61630 /* Toon.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Toon.frag; sourceTree = "<group>"; };
+		7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CloudStage.cpp; sourceTree = "<group>"; };
+		7EA4AA1B2A5AB2BF0046934E /* CloudStage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudStage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E4DB2802A59E5F30047132A /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +141,7 @@
 			children = (
 				7E4DB1EA2A59E5850047132A /* prj_luna */,
 				7E4DB1E92A59E5850047132A /* Products */,
+				7E4DB27E2A59E5F30047132A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +156,124 @@
 		7E4DB1EA2A59E5850047132A /* prj_luna */ = {
 			isa = PBXGroup;
 			children = (
-				7E4DB1EB2A59E5850047132A /* main.cpp */,
+				7E6970362A5B945200E61630 /* Asset Handler */,
+				7E6970352A5B926700E61630 /* Components */,
+				7E6970342A5B8DCF00E61630 /* Lib */,
+				7E4DB2332A59E59F0047132A /* Application.cpp */,
+				7E4DB23B2A59E5A00047132A /* Application.h */,
+				7E4DB23D2A59E5A00047132A /* FollowCamera.cpp */,
+				7E4DB2552A59E5A10047132A /* FollowCamera.h */,
+				7E4DB2812A5A50EE0047132A /* Stage.cpp */,
+				7E4DB2822A5A50EE0047132A /* Stage.h */,
+				7E4DB2842A5A724B0047132A /* TitleStage.cpp */,
+				7E4DB2852A5A724B0047132A /* TitleStage.h */,
+				7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */,
+				7EA4AA1B2A5AB2BF0046934E /* CloudStage.h */,
+				7E6970312A5AD51400E61630 /* PlaneActor.cpp */,
+				7E6970322A5AD51400E61630 /* PlaneActor.h */,
+				7E5D43EC2A5FFF1A00920241 /* DragonActor.cpp */,
+				7E5D43ED2A5FFF1A00920241 /* DragonActor.h */,
+				7E5D43EA2A5EB0A100920241 /* main.cpp */,
+				7E4DB1F32A59E59E0047132A /* Shaders */,
+				7E4DB2042A59E59F0047132A /* Assets */,
 			);
 			path = prj_luna;
+			sourceTree = "<group>";
+		};
+		7E4DB1F32A59E59E0047132A /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				7E4DB1F42A59E59E0047132A /* Phong.frag */,
+				7E4DB1F52A59E59E0047132A /* BasicMesh.vert */,
+				7E4DB1F62A59E59E0047132A /* Particle.frag */,
+				7E4DB1F72A59E59E0047132A /* Sprite.vert */,
+				7E4DB1F82A59E59E0047132A /* Billboard.vert */,
+				7E4DB1F92A59E59E0047132A /* BasicMesh.frag */,
+				7E4DB1FA2A59E59E0047132A /* Phong.vert */,
+				7E4DB1FB2A59E59E0047132A /* Skinned.vert */,
+				7E4DB1FC2A59E59E0047132A /* Sprite.frag */,
+				7E6970372A5C1FA400E61630 /* Toon.frag */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		7E4DB2042A59E59F0047132A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7E4DB27E2A59E5F30047132A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E4DB27F2A59E5F30047132A /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E6970342A5B8DCF00E61630 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				7E4DB25B2A59E5A20047132A /* Actor.h */,
+				7E4DB2012A59E59E0047132A /* Actor.cpp */,
+				7E4DB2302A59E59F0047132A /* Animation.h */,
+				7E4DB2382A59E59F0047132A /* Bone.cpp */,
+				7E4DB24A2A59E5A10047132A /* Bone.h */,
+				7E4DB2022A59E59E0047132A /* InputSystem.cpp */,
+				7E4DB2602A59E5A20047132A /* InputSystem.h */,
+				7E4DB23C2A59E5A00047132A /* Math.cpp */,
+				7E4DB2412A59E5A00047132A /* Math.h */,
+				7E4DB24F2A59E5A10047132A /* PhysWorld.cpp */,
+				7E4DB23E2A59E5A00047132A /* PhysWorld.h */,
+				7E4DB2502A59E5A10047132A /* Polygon.cpp */,
+				7E4DB2402A59E5A00047132A /* Polygon.h */,
+				7E4DB2032A59E59E0047132A /* Renderer.cpp */,
+				7E4DB22F2A59E59F0047132A /* Renderer.h */,
+				7E4DB1F22A59E59E0047132A /* Shader.cpp */,
+				7E4DB2322A59E59F0047132A /* Shader.h */,
+				7E4DB1FE2A59E59E0047132A /* VertexArray.cpp */,
+				7E4DB25C2A59E5A20047132A /* VertexArray.h */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		7E6970352A5B926700E61630 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7E4DB2532A59E5A10047132A /* BoundingVolumeComponent.cpp */,
+				7E4DB24E2A59E5A10047132A /* BoundingVolumeComponent.h */,
+				7E4DB2432A59E5A00047132A /* CameraComponent.cpp */,
+				7E4DB2352A59E59F0047132A /* CameraComponent.h */,
+				7E4DB2312A59E59F0047132A /* ColliderComponent.cpp */,
+				7E4DB2002A59E59E0047132A /* ColliderComponent.h */,
+				7E4DB2542A59E5A10047132A /* Component.cpp */,
+				7E4DB2452A59E5A00047132A /* Component.h */,
+				7E4DB2342A59E59F0047132A /* DebuggerComponent.cpp */,
+				7E4DB24D2A59E5A10047132A /* DebuggerComponent.h */,
+				7E4DB2392A59E5A00047132A /* MeshComponent.cpp */,
+				7E4DB24B2A59E5A10047132A /* MeshComponent.h */,
+				7E4DB25F2A59E5A20047132A /* MoveComponent.cpp */,
+				7E4DB1FD2A59E59E0047132A /* MoveComponent.h */,
+				7E4DB24C2A59E5A10047132A /* ParticleComponent.cpp */,
+				7E4DB2562A59E5A10047132A /* ParticleComponent.h */,
+				7E4DB2572A59E5A20047132A /* SkeletalMeshComponent.cpp */,
+				7E4DB2512A59E5A10047132A /* SkeletalMeshComponent.h */,
+				7E4DB2442A59E5A00047132A /* SpriteComponent.cpp */,
+				7E4DB2522A59E5A10047132A /* SpriteComponent.h */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		7E6970362A5B945200E61630 /* Asset Handler */ = {
+			isa = PBXGroup;
+			children = (
+				7E4DB2372A59E59F0047132A /* Mesh.cpp */,
+				7E4DB2482A59E5A10047132A /* Mesh.h */,
+				7E4DB23F2A59E5A00047132A /* Texture.cpp */,
+				7E4DB23A2A59E5A00047132A /* Texture.h */,
+			);
+			name = "Asset Handler";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +333,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E4DB1EC2A59E5850047132A /* main.cpp in Sources */,
+				7E4DB2642A59E5A20047132A /* Texture.cpp in Sources */,
+				7E4DB26B2A59E5A20047132A /* InputSystem.cpp in Sources */,
+				7E4DB26E2A59E5A20047132A /* SpriteComponent.cpp in Sources */,
+				7E4DB2752A59E5A20047132A /* Actor.cpp in Sources */,
+				7E4DB2662A59E5A20047132A /* Math.cpp in Sources */,
+				7E4DB2712A59E5A20047132A /* DebuggerComponent.cpp in Sources */,
+				7E4DB2832A5A50EE0047132A /* Stage.cpp in Sources */,
+				7E5D43EE2A5FFF1A00920241 /* DragonActor.cpp in Sources */,
+				7E4DB27B2A59E5A20047132A /* Polygon.cpp in Sources */,
+				7E4DB2722A59E5A20047132A /* SkeletalMeshComponent.cpp in Sources */,
+				7E4DB2862A5A724B0047132A /* TitleStage.cpp in Sources */,
+				7E4DB26C2A59E5A20047132A /* ParticleComponent.cpp in Sources */,
+				7E4DB2652A59E5A20047132A /* ColliderComponent.cpp in Sources */,
+				7E4DB2732A59E5A20047132A /* BoundingVolumeComponent.cpp in Sources */,
+				7E4DB2762A59E5A20047132A /* Application.cpp in Sources */,
+				7EA4AA1C2A5AB2BF0046934E /* CloudStage.cpp in Sources */,
+				7E6970332A5AD51400E61630 /* PlaneActor.cpp in Sources */,
+				7E4DB26A2A59E5A20047132A /* FollowCamera.cpp in Sources */,
+				7E4DB2612A59E5A20047132A /* MeshComponent.cpp in Sources */,
+				7E5D43EB2A5EB0A100920241 /* main.cpp in Sources */,
+				7E4DB2632A59E5A20047132A /* Bone.cpp in Sources */,
+				7E4DB27A2A59E5A20047132A /* Renderer.cpp in Sources */,
+				7E4DB2622A59E5A20047132A /* Shader.cpp in Sources */,
+				7E4DB2742A59E5A20047132A /* PhysWorld.cpp in Sources */,
+				7E4DB26F2A59E5A20047132A /* VertexArray.cpp in Sources */,
+				7E4DB2772A59E5A20047132A /* MoveComponent.cpp in Sources */,
+				7E4DB26D2A59E5A20047132A /* CameraComponent.cpp in Sources */,
+				7E4DB2702A59E5A20047132A /* Component.cpp in Sources */,
+				7E4DB27C2A59E5A20047132A /* Mesh.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +481,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /opt/homebrew/include;
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/lib;
+				OTHER_LDFLAGS = (
+					"-lassimp",
+					"-lglew",
+					"-lSDL2_image",
+					"-lSDL2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -247,6 +497,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /opt/homebrew/include;
+				LIBRARY_SEARCH_PATHS = /opt/homebrew/lib;
+				OTHER_LDFLAGS = (
+					"-lassimp",
+					"-lglew",
+					"-lSDL2_image",
+					"-lSDL2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
