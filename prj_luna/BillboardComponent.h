@@ -23,7 +23,7 @@ public:
     void SetVisible(bool visible) { isVisible = visible; }
     bool GetVisible() const { return isVisible; }
     
-    
+
 private:
 
     bool isVisible;
