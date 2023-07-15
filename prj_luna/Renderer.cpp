@@ -117,14 +117,24 @@ void Renderer::Draw()
     // アルファブレンディングを有効化
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     // メッシュ描画
-    meshShader->SetActive();
-    meshShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+    //meshShader->SetActive();
     // ライティング
-    SetLightUniforms(meshShader);
     for (auto mc : meshComps)
     {
         if (mc->GetVisible())
         {
+            if(mc->GetToon())
+            {
+                meshShaderToon->SetActive();
+                SetLightUniforms(meshShader);
+                meshShaderToon->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+            }
+            else
+            {
+                meshShader->SetActive();
+                SetLightUniforms(meshShaderToon);
+                meshShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+            }
             mc->Draw(meshShader);
         }
     }
@@ -226,7 +236,7 @@ bool Renderer::LoadShaders()
 
     
     
-    // パーティクル用シェーダー
+    // パーティクル/Billboard用シェーダー
     billboardShader = new Shader();
     if (!billboardShader->Load("Shaders/Billboard.vert", "Shaders/Sprite.frag"))
     {
@@ -242,16 +252,30 @@ bool Renderer::LoadShaders()
         return false;
     }
     meshShader->SetActive();
+    // メッシュ用シェーダー(Toon)生成
+    meshShaderToon = new Shader();
+    if (!meshShaderToon->Load("Shaders/Phong.vert", "Shaders/Toon.frag"))
+    {
+        return false;
+    }
+    meshShaderToon->SetActive();
+    
     
     
     // スキンメッシュ用シェーダー
     skinnedShader = new Shader();
-    if (!skinnedShader->Load("Shaders/Skinned.vert", "Shaders/Toon.frag"))
+    if (!skinnedShader->Load("Shaders/Skinned.vert", "Shaders/Phong.frag"))
     {
         return false;
     }
     skinnedShader->SetActive();
-    
+    // スキンメッシュ用シェーダー(Toon)
+    skinnedShaderToon = new Shader();
+    if (!skinnedShaderToon->Load("Shaders/Skinned.vert", "Shaders/Toon.frag"))
+    {
+        return false;
+    }
+    skinnedShaderToon->SetActive();
 
     
     // ビューマトリックス、プロジェクションマトリックス（デフォルト値）

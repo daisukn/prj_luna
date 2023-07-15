@@ -13,7 +13,7 @@ private:
     std::unique_ptr<class DragonActor> dragonActor;
 
     std::vector<std::unique_ptr<class BGCloudActor>> cloudActor;
-    std::vector<std::unique_ptr<class UfoEnemy>> ufoEnemy;
+    std::vector<std::unique_ptr<class EnemyActor>> ufoEnemy;
 
     std::unique_ptr<class Actor> skyActor;
     std::unique_ptr<class MeshComponent> skyMesh;

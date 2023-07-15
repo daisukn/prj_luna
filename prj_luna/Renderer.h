@@ -98,8 +98,10 @@ private:
 
     // メッシュ用シェーダー
     class Shader* meshShader;
+    class Shader* meshShaderToon;
     // スキンメッシュ用シェーダー
     class Shader* skinnedShader;
+    class Shader* skinnedShaderToon;
     // スプライト用シェーダー
     class Shader* spriteShader;
     // ビルボード用シェーダー

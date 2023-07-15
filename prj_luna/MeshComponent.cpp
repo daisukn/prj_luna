@@ -62,7 +62,7 @@ void MeshComponent::Draw(Shader* s)
         {
             glFrontFace(GL_CW);
             Matrix4 m = Matrix4::CreateScale(contourFactor);
-            s->SetMatrixUniform("uWorldTransform", owner->GetWorldTransform()*m);
+            s->SetMatrixUniform("uWorldTransform", m*owner->GetWorldTransform());
             for (auto v : va)
             {
                 Texture* t = owner->GetApp()->GetRenderer()->GetTexture("Assets/black.png");

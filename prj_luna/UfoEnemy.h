@@ -3,10 +3,11 @@
 
 #include "EnemyActor.h"
 
-class UfoEenemy : public EnemyActor
+class UfoEnemy : public EnemyActor
 {
 public:
-    UfoEenemy(class Application* a);
+    UfoEnemy(class Application* a);
+    void UpdateActor(float deltaTime) override;
 };
 
 

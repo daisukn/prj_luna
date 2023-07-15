@@ -74,7 +74,7 @@ void CloudStage::UpdateStage()
 {
     stageCounter++;
     
-    if(stageCounter % 20 == 0)
+    if(stageCounter % 40 == 0)
     {
         for(int i = 0; i < MAX_CLOUD; i++)
         {
@@ -87,7 +87,7 @@ void CloudStage::UpdateStage()
         }
     }
     
-    if(stageCounter % 20 == 10)
+    if(stageCounter % 40 == 10)
     {
         for(int i = 0; i < MAX_CLOUD; i++)
         {
@@ -95,6 +95,19 @@ void CloudStage::UpdateStage()
             {
                 cloudActor[i]->SetDisp(true);
                 cloudActor[i]->SetPosition(Vector3(-50, 0, 300));
+                break;
+            }
+        }
+    }
+    
+    if(stageCounter % 40 == 0)
+    {
+        for(int i = 0; i < MAX_UFO; i++)
+        {
+            if(!ufoEnemy[i]->GetDisp())
+            {
+                ufoEnemy[i]->SetDisp(true);
+                ufoEnemy[i]->SetPosition(Vector3(100, 0 , 500));
                 break;
             }
         }

@@ -58,7 +58,6 @@ void SkeletalMeshComponent::Draw(Shader* shader)
         
         if (isToon)
         {
-            glEnable( GL_CULL_FACE );
             glFrontFace(GL_CW);
             Matrix4 m = Matrix4::CreateScale(contourFactor);
             shader->SetMatrixUniform("uWorldTransform", m*owner->GetWorldTransform());

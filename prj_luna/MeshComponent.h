@@ -24,6 +24,9 @@ public:
     void SetToonRender(const bool t, const float f = 1.05f) { isToon = t; contourFactor = f; }
     void SetContourFactor(const float f) { contourFactor = f; }
     
+    bool GetToon() const { return isToon; }
+    
+    
 protected:
     class Mesh* mesh;      // メッシュ
     unsigned int textureIndex;    // TextureID
