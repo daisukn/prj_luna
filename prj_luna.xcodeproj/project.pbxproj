@@ -132,6 +132,7 @@
 		7EA398BF2A62D62900856DB1 /* EnemyActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnemyActor.h; sourceTree = "<group>"; };
 		7EA398C12A62D96B00856DB1 /* UfoEnemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UfoEnemy.cpp; sourceTree = "<group>"; };
 		7EA398C22A62D96B00856DB1 /* UfoEnemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UfoEnemy.h; sourceTree = "<group>"; };
+		7EA398C42A63188800856DB1 /* Billboard.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Billboard.frag; sourceTree = "<group>"; };
 		7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CloudStage.cpp; sourceTree = "<group>"; };
 		7EA4AA1B2A5AB2BF0046934E /* CloudStage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudStage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +193,7 @@
 				7E4DB1FB2A59E59E0047132A /* Skinned.vert */,
 				7E4DB1FC2A59E59E0047132A /* Sprite.frag */,
 				7E6970372A5C1FA400E61630 /* Toon.frag */,
+				7EA398C42A63188800856DB1 /* Billboard.frag */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";

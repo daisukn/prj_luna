@@ -50,8 +50,9 @@ bool Renderer::Initialize(std::string title, float scWidth, float scHeight)
     
     
     //ウインドウ生成
-    window = SDL_CreateWindow(strTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, static_cast<int>(screenWidth), static_cast<int>(screenHeight), SDL_WINDOW_OPENGL);
-                             //| SDL_WINDOW_FULLSCREEN);
+    window = SDL_CreateWindow(strTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, static_cast<int>(screenWidth), static_cast<int>(screenHeight), SDL_WINDOW_OPENGL
+                              );
+                              //| SDL_WINDOW_FULLSCREEN);
     if (!window )
     {
         std::cout << "Unable to create window" << std::endl;
@@ -126,16 +127,17 @@ void Renderer::Draw()
             if(mc->GetToon())
             {
                 meshShaderToon->SetActive();
-                SetLightUniforms(meshShader);
+                SetLightUniforms(meshShader.get());
                 meshShaderToon->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+                mc->Draw(meshShader.get());
             }
             else
             {
                 meshShader->SetActive();
-                SetLightUniforms(meshShaderToon);
+                SetLightUniforms(meshShaderToon.get());
                 meshShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+                mc->Draw(meshShaderToon.get());
             }
-            mc->Draw(meshShader);
         }
     }
 
@@ -143,12 +145,12 @@ void Renderer::Draw()
     skinnedShader->SetActive();
     skinnedShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
     // Update lighting uniforms
-    SetLightUniforms(skinnedShader);
+    SetLightUniforms(skinnedShader.get());
     for (auto sk : skeletalMeshes)
     {
         if (sk->GetVisible())
         {
-            sk->Draw(skinnedShader);
+            sk->Draw(skinnedShader.get());
         }
     }
 
@@ -177,16 +179,16 @@ void Renderer::Draw()
 
     for (auto parts : particleComps)
     {
-        parts->Draw(billboardShader);
+        parts->Draw(billboardShader.get());
     }
-    glDepthMask(GL_TRUE);
+    //glDepthMask(GL_TRUE);
     
     
     
     
     // ビルボード
     // Zバッファに書き込まない
-    glDepthMask(GL_FALSE);
+    //glDepthMask(GL_FALSE);
 
     spriteVerts->SetActive();
     billboardShader->SetActive();
@@ -195,7 +197,7 @@ void Renderer::Draw()
 
     for (auto bb : billboardComps)
     {
-        bb->Draw(billboardShader);
+        bb->Draw(billboardShader.get());
     }
     glDepthMask(GL_TRUE);
     
@@ -203,7 +205,7 @@ void Renderer::Draw()
     
     
     // スプライト処理
-    glDisable(GL_DEPTH_TEST);
+    //glDisable(GL_DEPTH_TEST);
     // アルファブレンディング
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
@@ -211,7 +213,7 @@ void Renderer::Draw()
     spriteShader->SetActive();    
     for (auto sprite : spriteComps)
     {
-        sprite->Draw(spriteShader);
+        sprite->Draw(spriteShader.get());
     }
     
 
@@ -224,7 +226,7 @@ bool Renderer::LoadShaders()
 {
 
     // スプライト用シェーダー生成
-    spriteShader = new Shader();
+    spriteShader = std::make_unique<Shader>();
     if (!spriteShader->Load("Shaders/Sprite.vert", "Shaders/Sprite.frag"))
     {
         return false;
@@ -237,7 +239,7 @@ bool Renderer::LoadShaders()
     
     
     // パーティクル/Billboard用シェーダー
-    billboardShader = new Shader();
+    billboardShader = std::make_unique<Shader>();
     if (!billboardShader->Load("Shaders/Billboard.vert", "Shaders/Sprite.frag"))
     {
         return false;
@@ -246,14 +248,15 @@ bool Renderer::LoadShaders()
     
     
     // メッシュ用シェーダー生成
-    meshShader = new Shader();
+    meshShader = std::make_unique<Shader>();
     if (!meshShader->Load("Shaders/Phong.vert", "Shaders/Phong.frag"))
     {
         return false;
     }
     meshShader->SetActive();
+    
     // メッシュ用シェーダー(Toon)生成
-    meshShaderToon = new Shader();
+    meshShaderToon = std::make_unique<Shader>();
     if (!meshShaderToon->Load("Shaders/Phong.vert", "Shaders/Toon.frag"))
     {
         return false;
@@ -263,14 +266,14 @@ bool Renderer::LoadShaders()
     
     
     // スキンメッシュ用シェーダー
-    skinnedShader = new Shader();
+    skinnedShader = std::make_unique<Shader>();
     if (!skinnedShader->Load("Shaders/Skinned.vert", "Shaders/Phong.frag"))
     {
         return false;
     }
     skinnedShader->SetActive();
     // スキンメッシュ用シェーダー(Toon)
-    skinnedShaderToon = new Shader();
+    skinnedShaderToon = std::make_unique<Shader>();
     if (!skinnedShaderToon->Load("Shaders/Skinned.vert", "Shaders/Toon.frag"))
     {
         return false;

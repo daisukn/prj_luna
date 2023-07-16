@@ -50,25 +50,25 @@ void PlaneActor::FieldMove(const InputState &state)
     
     
 
-    float speed = 35;
+    float speed = 50;
 
     
     
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_UP) == EHeld)
     {
-        if(GetPosition().y < 50) upSpeed += speed;
+        if(GetPosition().y < 45) upSpeed += speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_DOWN) == EHeld)
     {
-        if(GetPosition().y > -50) upSpeed -= speed;
+        if(GetPosition().y > -45) upSpeed -= speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_LEFT) == EHeld)
     {
-        if(GetPosition().x > -50) rightSpeed -= speed;
+        if(GetPosition().x > -80) rightSpeed -= speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_RIGHT) == EHeld)
     {
-        if(GetPosition().x < 50) rightSpeed += speed;
+        if(GetPosition().x < 80) rightSpeed += speed;
     }
     
     

@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 
+
 class CloudStage : public Stage
 {
 private:
@@ -21,6 +22,10 @@ private:
     float ang = 0.f;
     
     unsigned int stageCounter;
+    
+    void GenerateCloud();
+    
+
 public:
     CloudStage(class Application* a);
     ~CloudStage();

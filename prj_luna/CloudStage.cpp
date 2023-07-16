@@ -8,7 +8,10 @@
 #include "BGCloudActor.h"
 #include "UfoEnemy.h"
 
-const int MAX_CLOUD = 20;
+#include <cstdlib>
+#include <ctime>
+
+const int MAX_CLOUD = 50;
 const int MAX_UFO = 20;
 
 CloudStage::CloudStage(class Application* a)
@@ -16,6 +19,7 @@ CloudStage::CloudStage(class Application* a)
     , stageCounter(0)
 {
     LoadStageData();
+    std::srand((unsigned int)std::time(nullptr));
     
 }
 
@@ -73,32 +77,8 @@ void CloudStage::StageInput(const struct InputState &state)
 void CloudStage::UpdateStage()
 {
     stageCounter++;
-    
-    if(stageCounter % 40 == 0)
-    {
-        for(int i = 0; i < MAX_CLOUD; i++)
-        {
-            if(!cloudActor[i]->GetDisp())
-            {
-                cloudActor[i]->SetDisp(true);
-                cloudActor[i]->SetPosition(Vector3(50, 0, 300));
-                break;
-            }
-        }
-    }
-    
-    if(stageCounter % 40 == 10)
-    {
-        for(int i = 0; i < MAX_CLOUD; i++)
-        {
-            if(!cloudActor[i]->GetDisp())
-            {
-                cloudActor[i]->SetDisp(true);
-                cloudActor[i]->SetPosition(Vector3(-50, 0, 300));
-                break;
-            }
-        }
-    }
+    GenerateCloud();
+
     
     if(stageCounter % 40 == 0)
     {
@@ -107,7 +87,23 @@ void CloudStage::UpdateStage()
             if(!ufoEnemy[i]->GetDisp())
             {
                 ufoEnemy[i]->SetDisp(true);
-                ufoEnemy[i]->SetPosition(Vector3(100, 0 , 500));
+                ufoEnemy[i]->SetPosition(Vector3(std::rand() % 200 - 100, std::rand() % 150 - 75 , 800));
+                break;
+            }
+        }
+    }
+}
+
+void CloudStage::GenerateCloud()
+{
+    if(stageCounter % 5 == 0)
+    {
+        for(int i = 0; i < MAX_CLOUD; i++)
+        {
+            if(!cloudActor[i]->GetDisp())
+            {
+                cloudActor[i]->SetDisp(true);
+                cloudActor[i]->SetPosition(Vector3(std::rand() % 600 - 300, std::rand() % 400 - 200 , 800));
                 break;
             }
         }

@@ -9,6 +9,8 @@
 #include <algorithm>
 
 
+const float SCREEN_W = 1600.f;
+const float SCREEN_H = 900.f;
 
 // コンストラクタ
 Application::Application()
@@ -42,7 +44,7 @@ bool Application::Initialize()
     }
     
     // Renderer初期化
-    renderer->Initialize("Project Luna", 1280.0f, 720.0f);
+    renderer->Initialize("Project Luna", SCREEN_W, SCREEN_H);
 
     // 入力システム初期化
     inputSys->Initialize();
@@ -208,6 +210,7 @@ void Application::UpdateGame()
         deltaTime = 0.05f;
     }
     ticksCount = SDL_GetTicks();
+    //std::cout << 1.0f / deltaTime << std::endl;
 
     // 物理計算系
     //physWorld->ComputeGroundHeight();

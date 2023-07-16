@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 #include <unordered_map>
 #include <SDL2/SDL.h>
 
@@ -97,15 +98,15 @@ private:
     
 
     // メッシュ用シェーダー
-    class Shader* meshShader;
-    class Shader* meshShaderToon;
+    std::unique_ptr<class Shader> meshShader;
+    std::unique_ptr<class Shader> meshShaderToon;
     // スキンメッシュ用シェーダー
-    class Shader* skinnedShader;
-    class Shader* skinnedShaderToon;
+    std::unique_ptr<class Shader> skinnedShader;
+    std::unique_ptr<class Shader> skinnedShaderToon;
     // スプライト用シェーダー
-    class Shader* spriteShader;
+    std::unique_ptr<class Shader> spriteShader;
     // ビルボード用シェーダー
-    class Shader* billboardShader;
+    std::unique_ptr<class Shader> billboardShader;
     // シェーダー一括ロード
     bool LoadShaders();
 

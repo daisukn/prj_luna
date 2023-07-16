@@ -7,8 +7,8 @@ FollowCamera::FollowCamera(Actor* owner)
     : CameraComponent(owner)
     , horzDist(30.0f)        // 所有アクターとの距離
     , vertDist(00.0f)        // 所有アクターとの距離（高さ）
-    , targetDist(50.0f)      // 視点は所有アクターよりどのくらい前か
-    , springConstant(18.0f)  // バネ定数
+    , targetDist(100.0f)      // 視点は所有アクターよりどのくらい前か
+    , springConstant(100.0f)  // バネ定数
 {
     
 }
@@ -34,6 +34,25 @@ void FollowCamera::Update(float deltaTime)
 	// ターゲットは所有アクターの前方
     Vector3 target = owner->GetPosition() + owner->GetForward() * targetDist;
     
+   
+/*    // 調整
+    if(actualPos.y < -20)
+    {
+        actualPos.y = -20;
+    }
+    if(actualPos.y > 20)
+    {
+        actualPos.y = 20;
+    }
+    if(actualPos.x < -20)
+    {
+        actualPos.x = -20;
+    }
+    if(actualPos.x > 20)
+    {
+        actualPos.x = 20;
+    }
+*/
     
 
 	// ビューマトリックスを生成
@@ -61,6 +80,10 @@ Vector3 FollowCamera::ComputeCameraPos() const
 {
 	// カメラの位置を所有アクターの上のほうにセット
 	Vector3 cameraPos = owner->GetPosition();
+    {
+        cameraPos.x /= 2;
+        cameraPos.y /= 2;
+    }
     cameraPos -= owner->GetForward() * horzDist;
     cameraPos += Vector3::UnitY * vertDist;
 	return cameraPos;

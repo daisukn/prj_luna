@@ -16,7 +16,7 @@ public:
     // 派生先での入力処理 Override
     virtual void StageInput(const struct InputState& state);
     
-    bool GetQuitStage(){ return isQuitStage; }
+    bool GetQuitStage() const { return isQuitStage; }
     
 protected:
     class Application* app;

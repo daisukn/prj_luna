@@ -11,6 +11,7 @@ layout(location = 2) in vec2 inTexCoord;
 
 // フラグメントシェーダーに渡すUV
 out vec2 fragTexCoord;
+in vec3 fragWorldPos;
 
 void main()
 {
@@ -21,4 +22,5 @@ void main()
 
 	// テクスチャ座標をフラグメントシェーダーに送る
 	fragTexCoord = inTexCoord;
+    
 }
