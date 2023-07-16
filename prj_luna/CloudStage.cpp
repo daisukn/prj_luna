@@ -96,7 +96,7 @@ void CloudStage::UpdateStage()
 
 void CloudStage::GenerateCloud()
 {
-    if(stageCounter % 5 == 0)
+    if(stageCounter % 3 == 0)
     {
         for(int i = 0; i < MAX_CLOUD; i++)
         {
