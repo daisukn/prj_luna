@@ -21,7 +21,7 @@ Application::Application()
 {
     renderer = std::make_unique<class Renderer>();
     inputSys = std::make_unique<class InputSystem>();
-    //physWorld = std::make_unique<class PhysWorld>();
+    physWorld = std::make_unique<class PhysWorld>();
 
 }
 
@@ -189,7 +189,7 @@ void Application::LoadData()
     DirectionalLight& dir = renderer->GetDirectionalLight();
     dir.Direction = Vector3(0.f, 0.f, 1.f);
     dir.DiffuseColor = Vector3(0.4f, 0.4f, 0.4f);
-    dir.SpecColor = Vector3(0.f, 0.f, 0.f);
+    dir.SpecColor = Vector3(0.1f, 0.1f, 0.1f);
     
     // ステージ読み込み
     stageTransition = STAGE_TITLE;

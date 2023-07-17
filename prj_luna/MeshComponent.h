@@ -7,7 +7,7 @@
 class MeshComponent : public Component
 {
 public:
-    MeshComponent(class Actor* owner,  bool isSkeletal = false);
+    MeshComponent(class Actor* owner,  bool isSkeletal = false, bool isBG = false);
     virtual ~MeshComponent();
         
     // 描画 override
@@ -26,6 +26,9 @@ public:
     
     bool GetToon() const { return isToon; }
     
+    void SetBlendAdd(bool b) { isBlendAdd = b; }
+    bool GetBlendAdd() const { return isBlendAdd; }
+    
     
 protected:
     class Mesh* mesh;      // メッシュ
@@ -38,5 +41,7 @@ protected:
     bool isToon;
     float contourFactor;
     
+    // 加算合成するか
+    bool isBlendAdd;
 };
 

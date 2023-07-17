@@ -5,6 +5,7 @@
 #include "SkeletalMeshComponent.h"
 #include "MoveComponent.h"
 #include "FollowCamera.h"
+#include "ColliderComponent.h"
 #include <memory>
 
 
@@ -30,6 +31,8 @@ private:
     std::unique_ptr<class MoveComponent> moveComp;
     std::unique_ptr<class FollowCamera> cameraComp;
     
+    
+    std::unique_ptr<class ColliderComponent> collComp;
     
     // フィールド移動用
     void FieldMove(const struct InputState& state);

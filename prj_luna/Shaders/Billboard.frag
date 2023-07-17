@@ -3,11 +3,18 @@
 // 頂点シェーダーから受け取るUV座標
 in vec2 fragTexCoord;
 
-// カメラ位置
-uniform vec3 uCameraPos;
 // 座標
 in vec3 fragWorldPos;
 
+// 出力する色
+out vec4 outColor;
+
+// Uniform テクスチャ
+uniform sampler2D uTexture;
+
+
+// カメラ位置
+uniform vec3 uCameraPos;
 
 struct FogInfo {
     float maxDist;
@@ -18,26 +25,23 @@ struct FogInfo {
 uniform FogInfo uFoginfo;
 
 
-// 出力する色
-out vec4 outColor;
-
-// Uniform テクスチャ
-uniform sampler2D uTexture;
-
 void main()
 {
+
     // フォグの値を計算
     float dist = length(uCameraPos.xyz - fragWorldPos.xyz);
     float fogFactor = (uFoginfo.maxDist - dist) / (uFoginfo.maxDist - uFoginfo.minDist);
     fogFactor = clamp(fogFactor, 0.0f, 1.0f);
     
-    
+
     // テクスチャから色を計算
     vec4 col = texture(uTexture, fragTexCoord);
     
+    
+  
     // フォグを適用
     vec3 c = mix(uFoginfo.color, col.xyz, fogFactor);
-    outColor = vec4(c, 1.0f);
+    outColor = vec4(c, col.a);
 
+   
 }
-

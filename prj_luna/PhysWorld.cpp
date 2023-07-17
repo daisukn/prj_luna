@@ -139,27 +139,6 @@ bool PhysWorld::IsCollideBoxOBB(const OBB* cA, const OBB* cB){
 
 
 
-
-// 各コライダーの場所の地面の高さを調べる（XZ平面、Yが高さ）
-void PhysWorld::ComputeGroundHeight()
-{
-    for ( auto c : colliders )
-    {
-        Vector3 pos = c->GetPosition();
-        for ( auto pls : ground->GetPolygon() )
-        {
-            if ( IsInPolygon(pls, pos))
-            {
-                auto height = PolygonHeight(pls, pos);
-                c->SetGroundHeight(height);
-                c->SetOnGround(true);
-                break;            
-            }
-            c->SetOnGround(false);
-        }
-    }
-}
-
 // 高さを知らせるべきActorを登録
 void PhysWorld::AddCollider(ColliderComponent* c)
 {

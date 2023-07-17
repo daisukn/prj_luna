@@ -16,5 +16,5 @@ void VertexBoneData::AddBoneData(unsigned int BoneID, float Weight)
         }
     }
     // ここには来ないはず。
-   assert(0);
+//   assert(0);
 }

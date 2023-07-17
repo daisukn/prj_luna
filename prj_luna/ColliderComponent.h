@@ -37,13 +37,7 @@ public:
     class BoundingVolumeComponent* GetBoundingVolume() const { return boundingVolume; }
     
     
-    // 地表の高さを設定
-    void SetGroundHeight(const float f) { groundHeight = f; }
-    float GetGroundHeight() const { return groundHeight; }
-    
-    bool GetOnGround() const { return isOnGround; }
-    void SetOnGround(bool b) { isOnGround = b; }
-    
+
     
 private:
     class BoundingVolumeComponent* boundingVolume;
@@ -51,8 +45,6 @@ private:
     ColliderType type;
     std::vector<ColliderComponent*> targetColliders;
     
-    float groundHeight;
-    bool isOnGround;
 };
 
 #endif // __COMPONENT_H

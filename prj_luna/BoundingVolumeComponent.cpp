@@ -261,7 +261,7 @@ void BoundingVolumeComponent::Draw(Shader* shader)
         shader->SetMatrixUniform("uWorldTransform", owner->GetWorldTransform());
 
         // SpecPowerを送る
-        shader->SetFloatUniform("uSpecPower", 100);
+        shader->SetFloatUniform("uSpecPower", 1);
 
 
         texture->SetActive();

@@ -10,6 +10,7 @@
 //#include "BoundingVolumeComponet.h"
 #include "FollowCamera.h"
 #include "MoveComponent.h"
+#include "BoundingVolumeComponent.h"
 
 
 
@@ -34,13 +35,19 @@ PlaneActor::PlaneActor(Application* app)
     cameraComp = std::make_unique<FollowCamera>(this);
     // 移動コンポーネント
     moveComp = std::make_unique<MoveComponent>(this);
-/*
-    collComp = new ColliderComponent(this);
-    collComp->SetColliderType(C_PLAYER);
-    collComp->GetBoundingVolume()->ComputeBoundingVolume(app->GetRenderer()->GetMesh("Assets/hero_f.fbx")->GetVertexArray());
-    collComp->GetBoundingVolume()->AdjustBoundingBox(Vector3(0, 0, 0), Vector3(0.4, 1, 0.3));
+
+    
+    // コライダー
+    collComp = std::make_unique<ColliderComponent>(this);
+/*    collComp->SetColliderType(C_PLAYER);
+    collComp->GetBoundingVolume()->ComputeBoundingVolume(app->GetRenderer()->GetMesh("Assets/plane.fbx")->GetVertexArray());
+    collComp->GetBoundingVolume()->AdjustBoundingBox(Vector3(0, 0, 0), Vector3(0.01, 0.01, 0.01));
     collComp->GetBoundingVolume()->CreateVArray();
 */
+    
+    collComp->GetBoundingVolume()->ComputeBoundingVolume(Vector3(150, 150, 400), Vector3(300, 300, 800));
+    collComp->GetBoundingVolume()->CreateVArray();
+    
 }
 
 void PlaneActor::FieldMove(const InputState &state)
@@ -56,11 +63,11 @@ void PlaneActor::FieldMove(const InputState &state)
     
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_UP) == EHeld)
     {
-        if(GetPosition().y < 45) upSpeed += speed;
+        if(GetPosition().y < 40) upSpeed += speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_DOWN) == EHeld)
     {
-        if(GetPosition().y > -45) upSpeed -= speed;
+        if(GetPosition().y > -40) upSpeed -= speed;
     }
     if (state.Keyboard.GetKeyState(SDL_SCANCODE_LEFT) == EHeld)
     {

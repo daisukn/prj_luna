@@ -9,11 +9,9 @@ ColliderComponent::ColliderComponent(Actor* a)
     : Component(a)
     , type(C_NONE)
 //, targetType(C_NONE)
-    , groundHeight(0.0f)
-    , isOnGround(true)
 {
     boundingVolume = new BoundingVolumeComponent(a);
-    //owner->GetApp()->GetPhysWorld()->AddCollider(this);
+    owner->GetApp()->GetPhysWorld()->AddCollider(this);
 }
 
 ColliderComponent::~ColliderComponent()

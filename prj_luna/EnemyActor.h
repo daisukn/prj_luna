@@ -5,6 +5,7 @@
 #include "MeshComponent.h"
 #include "MoveComponent.h"
 #include "FollowCamera.h"
+#include "ColliderComponent.h"
 #include <memory>
 
 
@@ -24,6 +25,7 @@ public:
     
 protected:
     std::unique_ptr<class MeshComponent> meshComp;
+    std::unique_ptr<class ColliderComponent> collComp;
     bool isDisp;
 
 };

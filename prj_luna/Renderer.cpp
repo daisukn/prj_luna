@@ -101,25 +101,39 @@ void Renderer::Draw()
 {
 //    glClearColor(0.596f, 0.733f, 0.858f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    
-    glEnable( GL_CULL_FACE );
 
-    //Culling する面の向きを指定
+    //Culling設定
+    glEnable( GL_CULL_FACE );
     glFrontFace(GL_CCW);
 
     
     /* 描画処理 メッシュ、スプライト*/
-    
-    
+        
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     
     // アルファブレンディングを有効化
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    
+    
+    // 背景描画
+    backGroundShader->SetActive();
+    backGroundShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+    // Update lighting uniforms
+    SetLightUniforms(backGroundShader.get());
+    for (auto bg : backGroudComps)
+    {
+        if (bg->GetVisible())
+        {
+            bg->Draw(backGroundShader.get());
+        }
+    }
+    
+    
+    
     // メッシュ描画
     //meshShader->SetActive();
-    // ライティング
     for (auto mc : meshComps)
     {
         if (mc->GetVisible())
@@ -142,30 +156,30 @@ void Renderer::Draw()
     }
 
     // スキンメッシュ描画
-    skinnedShader->SetActive();
-    skinnedShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+    skinnedShaderToon->SetActive();
+    skinnedShaderToon->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
     // Update lighting uniforms
-    SetLightUniforms(skinnedShader.get());
+    SetLightUniforms(skinnedShaderToon.get());
     for (auto sk : skeletalMeshes)
     {
         if (sk->GetVisible())
         {
-            sk->Draw(skinnedShader.get());
+            sk->Draw(skinnedShaderToon.get());
         }
     }
 
-/*
+
     // デバッガー用の描画
-    meshShader->SetActive();
-    meshShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
+    backGroundShader->SetActive();
+    backGroundShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
     // Update lighting uniforms
-    SetLightUniforms(meshShader);
+    SetLightUniforms(backGroundShader.get());
     for (auto dg : dbgComps)
     {
-        dg->Draw(meshShader);
+        dg->Draw(backGroundShader.get());
 
     }
-*/
+
     
     // パーティクルの処理
     // Zバッファに書き込まない
@@ -192,6 +206,7 @@ void Renderer::Draw()
 
     spriteVerts->SetActive();
     billboardShader->SetActive();
+    SetLightUniforms(billboardShader.get());
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     billboardShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
 
@@ -240,7 +255,7 @@ bool Renderer::LoadShaders()
     
     // パーティクル/Billboard用シェーダー
     billboardShader = std::make_unique<Shader>();
-    if (!billboardShader->Load("Shaders/Billboard.vert", "Shaders/Sprite.frag"))
+    if (!billboardShader->Load("Shaders/Billboard.vert", "Shaders/Billboard.frag"))
     {
         return false;
     }
@@ -262,6 +277,16 @@ bool Renderer::LoadShaders()
         return false;
     }
     meshShaderToon->SetActive();
+    
+    
+    
+    // 背景用シェーダー生成
+    backGroundShader = std::make_unique<Shader>();
+    if (!backGroundShader->Load("Shaders/BasicMesh.vert", "Shaders/BasicMesh.frag"))
+    {
+        return false;
+    }
+    backGroundShader->SetActive();
     
     
     
@@ -310,10 +335,12 @@ void Renderer::SetLightUniforms(Shader* shader)
     
     
     // フォグ
-    shader->SetFloatUniform("uFoginfo.maxDist", 2000.0f);
+    shader->SetFloatUniform("uFoginfo.maxDist", 800.0f);
     shader->SetFloatUniform("uFoginfo.minDist", 1.0f);
-    shader->SetVectorUniform("uFoginfo.color", Vector3(0.596f, 0.733f, 0.858f) );
-//    shader->SetVectorUniform("uFoginfo.color", Vector3(0.01f, 0.01f, 0.01f) );
+    
+//    shader->SetVectorUniform("uFoginfo.color", Vector3(0.75f, 0.96f, 0.99f) );
+    shader->SetVectorUniform("uFoginfo.color", Vector3(0.80f, 0.96f, 0.99f) );
+
 
 }
 
@@ -441,6 +468,28 @@ void Renderer::RemoveMeshComp(MeshComponent* mesh)
     }
  
 }
+
+// メッシュコンポーネント登録
+void Renderer::AddBackGroudMeshComp(MeshComponent* mesh)
+{
+    backGroudComps.emplace_back(mesh);
+}
+
+
+// メッシュコンポーネント削除
+void Renderer::RemoveBackGroudMeshComp(MeshComponent* mesh)
+{
+    auto iter = std::find(backGroudComps.begin(), backGroudComps.end(), mesh);
+    if (iter != backGroudComps.end())
+    { // 要素が見つかった場合のみ削除
+        backGroudComps.erase(iter);
+    }
+ 
+}
+
+
+
+
 
 // パーティクルコンポーネント登録
 void Renderer::AddParticleComp(ParticleComponent* part)

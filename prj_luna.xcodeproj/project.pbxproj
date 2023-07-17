@@ -40,6 +40,8 @@
 		7EA398BD2A629DDB00856DB1 /* BGCloudActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398BB2A629DDB00856DB1 /* BGCloudActor.cpp */; };
 		7EA398C02A62D62900856DB1 /* EnemyActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398BE2A62D62900856DB1 /* EnemyActor.cpp */; };
 		7EA398C32A62D96B00856DB1 /* UfoEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398C12A62D96B00856DB1 /* UfoEnemy.cpp */; };
+		7EA398CA2A64530700856DB1 /* MoaiEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398C82A64530700856DB1 /* MoaiEnemy.cpp */; };
+		7EA398CD2A64565600856DB1 /* ShipEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398CB2A64565600856DB1 /* ShipEnemy.cpp */; };
 		7EA4AA1C2A5AB2BF0046934E /* CloudStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +135,10 @@
 		7EA398C12A62D96B00856DB1 /* UfoEnemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UfoEnemy.cpp; sourceTree = "<group>"; };
 		7EA398C22A62D96B00856DB1 /* UfoEnemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UfoEnemy.h; sourceTree = "<group>"; };
 		7EA398C42A63188800856DB1 /* Billboard.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Billboard.frag; sourceTree = "<group>"; };
+		7EA398C82A64530700856DB1 /* MoaiEnemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoaiEnemy.cpp; sourceTree = "<group>"; };
+		7EA398C92A64530700856DB1 /* MoaiEnemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoaiEnemy.h; sourceTree = "<group>"; };
+		7EA398CB2A64565600856DB1 /* ShipEnemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShipEnemy.cpp; sourceTree = "<group>"; };
+		7EA398CC2A64565600856DB1 /* ShipEnemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipEnemy.h; sourceTree = "<group>"; };
 		7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CloudStage.cpp; sourceTree = "<group>"; };
 		7EA4AA1B2A5AB2BF0046934E /* CloudStage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudStage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,12 +193,12 @@
 				7E4DB1F52A59E59E0047132A /* BasicMesh.vert */,
 				7E4DB1F62A59E59E0047132A /* Particle.frag */,
 				7E4DB1F72A59E59E0047132A /* Sprite.vert */,
-				7E4DB1F82A59E59E0047132A /* Billboard.vert */,
 				7E4DB1F92A59E59E0047132A /* BasicMesh.frag */,
 				7E4DB1FA2A59E59E0047132A /* Phong.vert */,
 				7E4DB1FB2A59E59E0047132A /* Skinned.vert */,
 				7E4DB1FC2A59E59E0047132A /* Sprite.frag */,
 				7E6970372A5C1FA400E61630 /* Toon.frag */,
+				7E4DB1F82A59E59E0047132A /* Billboard.vert */,
 				7EA398C42A63188800856DB1 /* Billboard.frag */,
 			);
 			path = Shaders;
@@ -296,6 +302,10 @@
 				7EA398BF2A62D62900856DB1 /* EnemyActor.h */,
 				7EA398C12A62D96B00856DB1 /* UfoEnemy.cpp */,
 				7EA398C22A62D96B00856DB1 /* UfoEnemy.h */,
+				7EA398C82A64530700856DB1 /* MoaiEnemy.cpp */,
+				7EA398C92A64530700856DB1 /* MoaiEnemy.h */,
+				7EA398CB2A64565600856DB1 /* ShipEnemy.cpp */,
+				7EA398CC2A64565600856DB1 /* ShipEnemy.h */,
 			);
 			name = Actors;
 			sourceTree = "<group>";
@@ -373,6 +383,7 @@
 			files = (
 				7EA398C02A62D62900856DB1 /* EnemyActor.cpp in Sources */,
 				7E4DB2642A59E5A20047132A /* Texture.cpp in Sources */,
+				7EA398CA2A64530700856DB1 /* MoaiEnemy.cpp in Sources */,
 				7E4DB26B2A59E5A20047132A /* InputSystem.cpp in Sources */,
 				7E4DB26E2A59E5A20047132A /* SpriteComponent.cpp in Sources */,
 				7E4DB2752A59E5A20047132A /* Actor.cpp in Sources */,
@@ -402,6 +413,7 @@
 				7E4DB2772A59E5A20047132A /* MoveComponent.cpp in Sources */,
 				7EA398C32A62D96B00856DB1 /* UfoEnemy.cpp in Sources */,
 				7E4DB26D2A59E5A20047132A /* CameraComponent.cpp in Sources */,
+				7EA398CD2A64565600856DB1 /* ShipEnemy.cpp in Sources */,
 				7E4DB2702A59E5A20047132A /* Component.cpp in Sources */,
 				7E4DB27C2A59E5A20047132A /* Mesh.cpp in Sources */,
 			);

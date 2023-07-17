@@ -7,12 +7,15 @@
 #include "DragonActor.h"
 #include "BGCloudActor.h"
 #include "UfoEnemy.h"
+#include "ShipEnemy.h"
 
 #include <cstdlib>
 #include <ctime>
 
 const int MAX_CLOUD = 50;
 const int MAX_UFO = 20;
+const int MAX_MOAI = 10;
+const int MAX_SHIP = 5;
 
 CloudStage::CloudStage(class Application* a)
     : Stage(a)
@@ -47,6 +50,14 @@ void CloudStage::LoadStageData()
     {
         ufoEnemy.push_back( std::make_unique<UfoEnemy>(app));
     }
+    for(int i = 0;  i < MAX_MOAI; i++)
+    {
+        moaiEnemy.push_back( std::make_unique<MoaiEnemy>(app));
+    }
+    for(int i = 0;  i < MAX_SHIP; i++)
+    {
+        shipEnemy.push_back( std::make_unique<ShipEnemy>(app));
+    }
     
 
     skyActor = std::make_unique<Actor>(app);
@@ -54,7 +65,7 @@ void CloudStage::LoadStageData()
     Quaternion q(Vector3::UnitY, Math::ToRadians(180));
     skyActor->SetRotation(q);
     skyActor->SetScale(1);
-    skyMesh = std::make_unique<MeshComponent>(skyActor.get());
+    skyMesh = std::make_unique<MeshComponent>(skyActor.get(), false, true);
     skyMesh->SetMesh(app->GetRenderer()->GetMesh("Assets/sky.lwo"));
     
 
@@ -92,18 +103,45 @@ void CloudStage::UpdateStage()
             }
         }
     }
+    
+    if(stageCounter % 60 == 0)
+    {
+        for(int i = 0; i < MAX_MOAI; i++)
+        {
+            if(!moaiEnemy[i]->GetDisp())
+            {
+                moaiEnemy[i]->SetDisp(true);
+                moaiEnemy[i]->SetPosition(Vector3(std::rand() % 200 - 100, std::rand() % 150 - 75 , 800));
+                break;
+            }
+        }
+    }
+    
+    if(stageCounter % 60 == 0)
+    {
+        for(int i = 0; i < MAX_SHIP; i++)
+        {
+            if(!shipEnemy[i]->GetDisp())
+            {
+                shipEnemy[i]->SetDisp(true);
+                shipEnemy[i]->SetPosition(Vector3(std::rand() % 200 - 100, std::rand() % 150 - 75 , 800));
+                break;
+            }
+        }
+    }
+    
 }
 
 void CloudStage::GenerateCloud()
 {
-    if(stageCounter % 3 == 0)
+    if(stageCounter % 2 == 0)
     {
         for(int i = 0; i < MAX_CLOUD; i++)
         {
             if(!cloudActor[i]->GetDisp())
             {
                 cloudActor[i]->SetDisp(true);
-                cloudActor[i]->SetPosition(Vector3(std::rand() % 600 - 300, std::rand() % 400 - 200 , 800));
+                cloudActor[i]->SetPosition(Vector3(std::rand() % 600 - 300, std::rand() % 400 - 200 , 1000));
                 break;
             }
         }

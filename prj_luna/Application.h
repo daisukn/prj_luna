@@ -37,7 +37,7 @@ public:
     // 描画エンジンを取得
     class Renderer* GetRenderer() const { return renderer.get(); }
     // 物理エンジンを取得
-    //class PhysWorld* GetPhysWorld() const { return physWorld.get(); }
+    class PhysWorld* GetPhysWorld() const { return physWorld.get(); }
     
 
     
@@ -55,7 +55,7 @@ private:
     // 入力エンジン
     std::unique_ptr<class InputSystem> inputSys;
     // 物理エンジン
-    //std::unique_ptr<class PhysWorld> physWorld;
+    std::unique_ptr<class PhysWorld> physWorld;
     // 時間管理
     unsigned int ticksCount;
 

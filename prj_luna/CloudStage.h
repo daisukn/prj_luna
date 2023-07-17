@@ -3,6 +3,7 @@
 
 #include "Stage.h"
 #include "UfoEnemy.h"
+#include "MoaiEnemy.h"
 #include <memory>
 #include <vector>
 
@@ -15,6 +16,8 @@ private:
 
     std::vector<std::unique_ptr<class BGCloudActor>> cloudActor;
     std::vector<std::unique_ptr<class EnemyActor>> ufoEnemy;
+    std::vector<std::unique_ptr<class EnemyActor>> moaiEnemy;
+    std::vector<std::unique_ptr<class EnemyActor>> shipEnemy;
 
     std::unique_ptr<class Actor> skyActor;
     std::unique_ptr<class MeshComponent> skyMesh;

@@ -53,6 +53,9 @@ public:
     // メッシュコンポーネント登録・削除
     void AddMeshComp(class MeshComponent* mesh);
     void RemoveMeshComp(class MeshComponent* mesh);
+    // 背景メッシュコンポーネント登録・削除
+    void AddBackGroudMeshComp(class MeshComponent* mesh);
+    void RemoveBackGroudMeshComp(class MeshComponent* mesh);
     // パーティクルコンポーネント登録・削除
     void AddParticleComp(class ParticleComponent* part);
     void RemoveParticleComp(class ParticleComponent* part);
@@ -100,6 +103,7 @@ private:
     // メッシュ用シェーダー
     std::unique_ptr<class Shader> meshShader;
     std::unique_ptr<class Shader> meshShaderToon;
+    std::unique_ptr<class Shader> backGroundShader;
     // スキンメッシュ用シェーダー
     std::unique_ptr<class Shader> skinnedShader;
     std::unique_ptr<class Shader> skinnedShaderToon;
@@ -125,6 +129,7 @@ private:
     // コンポーネント
     std::vector<class SpriteComponent*> spriteComps;
     std::vector<class MeshComponent*> meshComps;
+    std::vector<class MeshComponent*> backGroudComps;
     std::vector<class SkeletalMeshComponent*> skeletalMeshes;
     std::vector<class ParticleComponent*> particleComps;
     std::vector<class BillboardComponent*> billboardComps;

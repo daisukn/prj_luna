@@ -12,7 +12,8 @@ layout(location = 2) in vec2 inTexCoord;
 
 // フラグメントシェーダーに渡すUV
 out vec2 fragTexCoord;
-
+// フラグメントシェーダーに渡す頂点座標
+out vec3 fragWorldPos;
 
 void main()
 {
@@ -25,9 +26,11 @@ void main()
     // 頂点座標のワールド変換
     pos = pos * uWorldTransform;
 
+    // フラグメントシェーダーに渡すワールド座標
+    fragWorldPos = pos.xyz;
+    
     // 投影座標
     gl_Position = pos * uViewProj;
-
 
     // UV座標
     fragTexCoord = inTexCoord;

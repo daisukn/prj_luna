@@ -12,7 +12,7 @@
 #include <vector>
 
 // コンストラクタ
-MeshComponent::MeshComponent(Actor* a, bool isSkeletal)
+MeshComponent::MeshComponent(Actor* a, bool isSkeletal, bool isBG)
     : Component(a)
     , mesh(nullptr)
     , textureIndex(0)
@@ -20,9 +20,19 @@ MeshComponent::MeshComponent(Actor* a, bool isSkeletal)
     , isSkeletal(isSkeletal)
     , isToon(false)
     , contourFactor(1.1014f)
+    , isBlendAdd(false)
 {
-    // Rendererに追加
-	owner->GetApp()->GetRenderer()->AddMeshComp(this);
+    if(isBG)
+    {
+        // Rendererに追加
+        owner->GetApp()->GetRenderer()->AddBackGroudMeshComp(this);
+
+    }
+    else
+    {
+        // Rendererに追加
+        owner->GetApp()->GetRenderer()->AddMeshComp(this);
+    }
 }
 
 // デストラクタ
@@ -37,6 +47,11 @@ void MeshComponent::Draw(Shader* s)
 {
 	if (mesh)
 	{
+        if (isBlendAdd)
+        {
+            glBlendFunc(GL_ONE, GL_ONE);
+        }
+        
         // WorldマトリックスをShaderに送る
 		s->SetMatrixUniform("uWorldTransform", owner->GetWorldTransform());
 
@@ -75,6 +90,12 @@ void MeshComponent::Draw(Shader* s)
             }
             glFrontFace(GL_CCW);
         }
+        
+        if (isBlendAdd)
+        {
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        }
+        
 	}
 }
 
