@@ -19,7 +19,7 @@ DragonActor::DragonActor(Application* app)
     meshComp->SetMesh(app->GetRenderer()->GetMesh("Assets/Dragon.fbx"));
     meshComp->SetAnimID(0, PLAY_CYCLIC);
     
-    meshComp->SetToonRender(true);
+    meshComp->SetToonRender(true, 1.003f);
     meshComp->SetVisible(true);
     
     

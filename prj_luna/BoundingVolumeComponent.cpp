@@ -16,7 +16,7 @@ BoundingVolumeComponent::BoundingVolumeComponent(Actor* a)
 //    : Component(a)
     : DebuggerComponent(a)
     , radius(0.0f)
-    , bVisible(false)
+    , isVisible(false)
 {
     // new するタイミングは要検討
     boundingBox = new Cube();
@@ -248,14 +248,14 @@ void BoundingVolumeComponent::CreateVArray()
     // マテリアル非対応なのでTextureで代用
     texture = owner->GetApp()->GetRenderer()->GetTexture("Assets/BoundingVolume.png");
     
-    bVisible = true;
+    //isVisible = true;
 }
 
 
 // バウンディングボリューム表示（ワイヤフレーム）
 void BoundingVolumeComponent::Draw(Shader* shader)
 {
-    if (bVisible)
+    if (isVisible)
     {
         // WorldマトリックスをShaderに送る
         shader->SetMatrixUniform("uWorldTransform", owner->GetWorldTransform());

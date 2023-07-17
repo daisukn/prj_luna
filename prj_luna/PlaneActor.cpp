@@ -7,11 +7,10 @@
 #include "SkeletalMeshComponent.h"
 #include "Mesh.h"
 #include "InputSystem.h"
-//#include "BoundingVolumeComponet.h"
 #include "FollowCamera.h"
 #include "MoveComponent.h"
 #include "BoundingVolumeComponent.h"
-
+#include "CloudStage.h"
 
 
 PlaneActor::PlaneActor(Application* app)
@@ -29,7 +28,7 @@ PlaneActor::PlaneActor(Application* app)
     
     // 場所調整
     SetPosition(Vector3(0.0f, 0.0f, -0.0f));
-    SetScale(0.01);
+    //SetScale(0.01);
     
     // カメラ初期化
     cameraComp = std::make_unique<FollowCamera>(this);
@@ -39,14 +38,15 @@ PlaneActor::PlaneActor(Application* app)
     
     // コライダー
     collComp = std::make_unique<ColliderComponent>(this);
-/*    collComp->SetColliderType(C_PLAYER);
+    collComp->SetColliderType(C_PLAYER);
     collComp->GetBoundingVolume()->ComputeBoundingVolume(app->GetRenderer()->GetMesh("Assets/plane.fbx")->GetVertexArray());
-    collComp->GetBoundingVolume()->AdjustBoundingBox(Vector3(0, 0, 0), Vector3(0.01, 0.01, 0.01));
+    collComp->GetBoundingVolume()->AdjustBoundingBox(Vector3(0, 0, 0), Vector3(1, 0.5, 1));
     collComp->GetBoundingVolume()->CreateVArray();
-*/
+    collComp->GetBoundingVolume()->SetVisible(true);
+
     
-    collComp->GetBoundingVolume()->ComputeBoundingVolume(Vector3(150, 150, 400), Vector3(300, 300, 800));
-    collComp->GetBoundingVolume()->CreateVArray();
+//    collComp->GetBoundingVolume()->ComputeBoundingVolume(Vector3(150, 150, 400), Vector3(300, 300, 800));
+//    collComp->GetBoundingVolume()->CreateVArray();
     
 }
 
@@ -78,6 +78,10 @@ void PlaneActor::FieldMove(const InputState &state)
         if(GetPosition().x < 80) rightSpeed += speed;
     }
     
+    if (state.Keyboard.GetKeyState(SDL_SCANCODE_Z) == EPressed)
+    {
+        ownerStage->InputAction_A();
+    }
     
     
     moveComp->SetRightSpeed(rightSpeed);

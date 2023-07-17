@@ -4,6 +4,7 @@
 #include "Stage.h"
 #include "UfoEnemy.h"
 #include "MoaiEnemy.h"
+#include "LaserActor.h"
 #include <memory>
 #include <vector>
 
@@ -14,10 +15,11 @@ private:
     std::unique_ptr<class PlaneActor> planeActor;
     std::unique_ptr<class DragonActor> dragonActor;
 
-    std::vector<std::unique_ptr<class BGCloudActor>> cloudActor;
-    std::vector<std::unique_ptr<class EnemyActor>> ufoEnemy;
-    std::vector<std::unique_ptr<class EnemyActor>> moaiEnemy;
-    std::vector<std::unique_ptr<class EnemyActor>> shipEnemy;
+    std::vector<std::unique_ptr<class CloudBGActor>> cloudActor;
+    std::vector<std::unique_ptr<class ObjectActor>> ufoEnemy;
+    std::vector<std::unique_ptr<class ObjectActor>> moaiEnemy;
+    std::vector<std::unique_ptr<class ObjectActor>> shipEnemy;
+    std::vector<std::unique_ptr<class ObjectActor>> laserActor;
 
     std::unique_ptr<class Actor> skyActor;
     std::unique_ptr<class MeshComponent> skyMesh;
@@ -38,6 +40,9 @@ public:
     virtual void UpdateStage() override;
     
     virtual void StageInput(const struct InputState& state) override;
+    
+    virtual void InputAction_A() override;
+    
 };
 
 

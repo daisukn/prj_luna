@@ -14,6 +14,9 @@
 #include <GL/glew.h>
 #include <algorithm>
 
+
+#define __GAME_DEBUG
+
 // コンストラクタ
 Renderer::Renderer()
 {
@@ -168,7 +171,7 @@ void Renderer::Draw()
         }
     }
 
-
+#ifdef __GAME_DEBUG
     // デバッガー用の描画
     backGroundShader->SetActive();
     backGroundShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);
@@ -179,7 +182,7 @@ void Renderer::Draw()
         dg->Draw(backGroundShader.get());
 
     }
-
+#endif // __GAME_DEBUG
     
     // パーティクルの処理
     // Zバッファに書き込まない
@@ -308,7 +311,7 @@ bool Renderer::LoadShaders()
     
     // ビューマトリックス、プロジェクションマトリックス（デフォルト値）
     viewMatrix = Matrix4::CreateLookAt(Vector3::Zero, Vector3::UnitZ, Vector3::UnitY);
-    projectionMatrix = Matrix4::CreatePerspectiveFOV(Math::ToRadians(45.0f), screenWidth, screenHeight, 1.0f, 10000.0f);
+    projectionMatrix = Matrix4::CreatePerspectiveFOV(Math::ToRadians(60.0f), screenWidth, screenHeight, 1.0f, 10000.0f);
     
     // シェーダーに送る
     meshShader->SetMatrixUniform("uViewProj", viewMatrix * projectionMatrix);

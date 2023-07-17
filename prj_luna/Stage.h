@@ -18,6 +18,10 @@ public:
     
     bool GetQuitStage() const { return isQuitStage; }
     
+    
+    virtual void InputAction_A() { /* overrideする */ }
+    
+    
 protected:
     class Application* app;
     

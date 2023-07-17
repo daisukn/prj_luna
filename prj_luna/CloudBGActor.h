@@ -10,10 +10,10 @@
 
 
 // 背景用雲
-class BGCloudActor : public Actor
+class CloudBGActor : public Actor
 {
 public:
-    BGCloudActor(class Application* a);
+    CloudBGActor(class Application* a);
 
     void UpdateActor(float deltaTime) override;
 

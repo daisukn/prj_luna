@@ -1,5 +1,5 @@
-#ifndef __UFOACTOR_H
-#define __UFOACTOR_H
+#ifndef __OBJECTACTOR_H
+#define __OBJECTACTOR_H
 
 #include "Actor.h"
 #include "MeshComponent.h"
@@ -9,11 +9,11 @@
 #include <memory>
 
 
-// 敵の基底クラス
-class EnemyActor : public Actor
+// ゲームオブジェクトの基底クラス
+class ObjectActor : public Actor
 {
 public:
-    EnemyActor(class Application* a);
+    ObjectActor(class Application* a);
 
     void UpdateActor(float deltaTime) override;
 

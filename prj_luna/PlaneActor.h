@@ -20,9 +20,14 @@ public:
 
     void SetMeshVisible(bool visible);
     
+    void SetOwnerStage(class Stage* s) { ownerStage = s; }
+    
 private:
     //  前フレームの場所
     Vector3 prevPos;
+    
+    // オーナーのステージ
+    class Stage* ownerStage;
     
     // モーションID
     int animID;

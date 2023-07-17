@@ -69,11 +69,14 @@ public:
     struct OBB* GetOBB() const { return obb; }
     
     struct Polygon* GetPlygons() const { return polygons; }
+    
+    void SetVisible(bool b) { isVisible = b; }
+    bool GetVisibile() const { return isVisible; }
 
 private:
  
     // デバッグ用に表示するかどうか
-    bool bVisible;
+    bool isVisible;
     
     struct Polygon* polygons;
     void CreatePolygons();

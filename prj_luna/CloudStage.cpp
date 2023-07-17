@@ -5,9 +5,10 @@
 #include "Renderer.h"
 #include "PlaneActor.h"
 #include "DragonActor.h"
-#include "BGCloudActor.h"
+#include "CloudBGActor.h"
 #include "UfoEnemy.h"
 #include "ShipEnemy.h"
+#include "LaserActor.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -16,6 +17,7 @@ const int MAX_CLOUD = 50;
 const int MAX_UFO = 20;
 const int MAX_MOAI = 10;
 const int MAX_SHIP = 5;
+const int MAX_LASER = 10;
 
 CloudStage::CloudStage(class Application* a)
     : Stage(a)
@@ -37,6 +39,7 @@ void CloudStage::LoadStageData()
     
     planeActor = std::make_unique<PlaneActor>(app);
     planeActor->SetPosition(Vector3(0, 0, 30));
+    planeActor->SetOwnerStage(this);
 
     dragonActor = std::make_unique<DragonActor>(app);
     dragonActor->SetPosition(Vector3(0, 0, 100));
@@ -44,7 +47,7 @@ void CloudStage::LoadStageData()
     
     for(int i = 0; i < MAX_CLOUD; i++)
     {
-        cloudActor.push_back( std::make_unique<BGCloudActor>(app) );
+        cloudActor.push_back( std::make_unique<CloudBGActor>(app) );
     }
     for(int i = 0;  i < MAX_UFO; i++)
     {
@@ -58,6 +61,12 @@ void CloudStage::LoadStageData()
     {
         shipEnemy.push_back( std::make_unique<ShipEnemy>(app));
     }
+    for(int i = 0;  i < MAX_LASER; i++)
+    {
+        laserActor.push_back( std::make_unique<LaserActor>(app));
+    }
+    
+    
     
 
     skyActor = std::make_unique<Actor>(app);
@@ -146,4 +155,18 @@ void CloudStage::GenerateCloud()
             }
         }
     }
+}
+
+void CloudStage::InputAction_A()
+{
+    for(int i = 0; i < MAX_LASER; i++)
+    {
+        if(!laserActor[i]->GetDisp())
+        {
+            laserActor[i]->SetDisp(true);
+            laserActor[i]->SetPosition(planeActor->GetPosition());
+            break;
+        }
+    }
+    
 }

@@ -1,9 +1,9 @@
-#include "BGCloudActor.h"
+#include "CloudBGActor.h"
 #include "Application.h"
 #include "Renderer.h"
 
 
-BGCloudActor::BGCloudActor(Application* a)
+CloudBGActor::CloudBGActor(Application* a)
     : Actor(a)
     , isDisp(false)
 {
@@ -12,7 +12,7 @@ BGCloudActor::BGCloudActor(Application* a)
 //    cloudBillboard->SetTexture(GetApp()->GetRenderer()->GetTexture("Assets/Textures/moku.png"));
 }
 
-void BGCloudActor::UpdateActor(float deltaTime)
+void CloudBGActor::UpdateActor(float deltaTime)
 {
     if(isDisp)
     {
