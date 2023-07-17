@@ -36,13 +36,13 @@
 		7E5D43EB2A5EB0A100920241 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D43EA2A5EB0A100920241 /* main.cpp */; };
 		7E5D43EE2A5FFF1A00920241 /* DragonActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D43EC2A5FFF1A00920241 /* DragonActor.cpp */; };
 		7E6970332A5AD51400E61630 /* PlaneActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E6970312A5AD51400E61630 /* PlaneActor.cpp */; };
-		7EA398BA2A628ED000856DB1 /* BillboardComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398B82A628ED000856DB1 /* BillboardComponent.cpp */; };
 		7EA398BD2A629DDB00856DB1 /* CloudBGActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398BB2A629DDB00856DB1 /* CloudBGActor.cpp */; };
 		7EA398C02A62D62900856DB1 /* ObjectActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398BE2A62D62900856DB1 /* ObjectActor.cpp */; };
 		7EA398C32A62D96B00856DB1 /* UfoEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398C12A62D96B00856DB1 /* UfoEnemy.cpp */; };
 		7EA398CA2A64530700856DB1 /* MoaiEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398C82A64530700856DB1 /* MoaiEnemy.cpp */; };
 		7EA398CD2A64565600856DB1 /* ShipEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398CB2A64565600856DB1 /* ShipEnemy.cpp */; };
 		7EA398D02A652CD800856DB1 /* LaserActor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398CE2A652CD800856DB1 /* LaserActor.cpp */; };
+		7EA398D42A654D3F00856DB1 /* BillBoardComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA398D32A654D3F00856DB1 /* BillBoardComponent.cpp */; };
 		7EA4AA1C2A5AB2BF0046934E /* CloudStage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */; };
 /* End PBXBuildFile section */
 
@@ -127,7 +127,6 @@
 		7E6970312A5AD51400E61630 /* PlaneActor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneActor.cpp; sourceTree = "<group>"; };
 		7E6970322A5AD51400E61630 /* PlaneActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaneActor.h; sourceTree = "<group>"; };
 		7E6970372A5C1FA400E61630 /* Toon.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Toon.frag; sourceTree = "<group>"; };
-		7EA398B82A628ED000856DB1 /* BillboardComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BillboardComponent.cpp; sourceTree = "<group>"; };
 		7EA398B92A628ED000856DB1 /* BillboardComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BillboardComponent.h; sourceTree = "<group>"; };
 		7EA398BB2A629DDB00856DB1 /* CloudBGActor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CloudBGActor.cpp; sourceTree = "<group>"; };
 		7EA398BC2A629DDB00856DB1 /* CloudBGActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudBGActor.h; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		7EA398CC2A64565600856DB1 /* ShipEnemy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShipEnemy.h; sourceTree = "<group>"; };
 		7EA398CE2A652CD800856DB1 /* LaserActor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LaserActor.cpp; sourceTree = "<group>"; };
 		7EA398CF2A652CD800856DB1 /* LaserActor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaserActor.h; sourceTree = "<group>"; };
+		7EA398D32A654D3F00856DB1 /* BillBoardComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BillBoardComponent.cpp; sourceTree = "<group>"; };
 		7EA4AA1A2A5AB2BF0046934E /* CloudStage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CloudStage.cpp; sourceTree = "<group>"; };
 		7EA4AA1B2A5AB2BF0046934E /* CloudStage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudStage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,7 +259,7 @@
 				7E4DB2442A59E5A00047132A /* SpriteComponent.cpp */,
 				7E4DB2522A59E5A10047132A /* SpriteComponent.h */,
 				7E4DB2302A59E59F0047132A /* Animation.h */,
-				7EA398B82A628ED000856DB1 /* BillboardComponent.cpp */,
+				7EA398D32A654D3F00856DB1 /* BillBoardComponent.cpp */,
 				7EA398B92A628ED000856DB1 /* BillboardComponent.h */,
 			);
 			name = Components;
@@ -399,7 +399,6 @@
 				7E4DB2832A5A50EE0047132A /* Stage.cpp in Sources */,
 				7E5D43EE2A5FFF1A00920241 /* DragonActor.cpp in Sources */,
 				7E4DB27B2A59E5A20047132A /* Polygon.cpp in Sources */,
-				7EA398BA2A628ED000856DB1 /* BillboardComponent.cpp in Sources */,
 				7E4DB2722A59E5A20047132A /* SkeletalMeshComponent.cpp in Sources */,
 				7E4DB2862A5A724B0047132A /* TitleStage.cpp in Sources */,
 				7E4DB26C2A59E5A20047132A /* ParticleComponent.cpp in Sources */,
@@ -408,6 +407,7 @@
 				7E4DB2762A59E5A20047132A /* Application.cpp in Sources */,
 				7EA4AA1C2A5AB2BF0046934E /* CloudStage.cpp in Sources */,
 				7E6970332A5AD51400E61630 /* PlaneActor.cpp in Sources */,
+				7EA398D42A654D3F00856DB1 /* BillBoardComponent.cpp in Sources */,
 				7E4DB26A2A59E5A20047132A /* FollowCamera.cpp in Sources */,
 				7E4DB2612A59E5A20047132A /* MeshComponent.cpp in Sources */,
 				7E5D43EB2A5EB0A100920241 /* main.cpp in Sources */,
